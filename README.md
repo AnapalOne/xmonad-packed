@@ -1,6 +1,6 @@
 ## XMonad Configuration by Anapal
 ![alt text](https://github.com/AnapalOne/pictures/blob/master/2022-04-13_17-41.png "XMonad")
-**NOTE: This configuration is to be used with `.xmobarrc` and `.config` (see repositories)**
+**NOTE: This configuration installs a lot of packages and programs, see /.config/help**
 
 ### Install git
 ``` 
