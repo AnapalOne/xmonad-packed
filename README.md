@@ -29,7 +29,7 @@ chmod +x ./setup.sh
 ```
 #### Run script
 ```
-setup.sh
+sudo setup.sh
 ```
 
 - If you want to only apply this config to your xmonad, simply copy `xmonad.hs` to `~/.xmonad/`
