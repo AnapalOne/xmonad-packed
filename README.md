@@ -1,6 +1,6 @@
 # XMonad Configuration by Anapal
 
-## If you haven't already, install git
+## Install Git
    Arch Linux:
 ``` 
  sudo pacman -S git
