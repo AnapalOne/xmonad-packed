@@ -7,7 +7,7 @@
    <!-- I know, very ugly. --> 
 
 ## Requirements
-#### git
+### git
 ``` 
 sudo pacman -S git
 ```
