@@ -25,8 +25,11 @@ makepkg -si
 
 ## Download
 ``` 
-git clone https://github.com/AnapalOne/.xmonad
+git clone https://github.com/AnapalOne/xmonad
 ```  
+```
+cd xmonad
+```
 
 ## Setup
 - Automatically setup XMonad config with installed packages
