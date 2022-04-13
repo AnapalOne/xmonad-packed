@@ -5,16 +5,19 @@ A custom XMonad config for Arch Linux.
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Assumes that a desktop environment has already been installed.**
    <!-- I know, very ugly. --> 
 
-## Installation
-- Installing git
+## Requirements
+- git
 ``` 
- sudo pacman -S git
+sudo pacman -S git
 ```
+  - Verify: `git --version`
 
-- Verify:
-``` 
-git --version
+- yay
 ```
+git clone https://aur.archlinux.org/yay.git
+```
+```cd yay```
+```makepkg -si```
 
 - Download
 ``` 
