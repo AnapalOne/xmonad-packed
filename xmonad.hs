@@ -185,7 +185,7 @@ myManageHook = composeAll
         , className =? "libreoffice-startcenter" --> doShift "<action=xdotool key super+2>\xf718</action>"
         , className =? "Chromium"       --> doShift "<action=xdotool key super+3>\xe743</action>" --www
         , className =? "Audacity"       --> doShift "<action=xdotool key super+4>\xf121</action>" --dev
-        , className =? "Github Desktop" --> doShift "<action=xdotool key super+4>\xf121</action>"
+        , className =? "GitHub Desktop" --> doShift "<action=xdotool key super+4>\xf121</action>"
         , className =? "vlc"            --> doShift "<action=xdotool key super+5>\xf008</action>" --vid
         , className =? "Gimp"           --> doShift "<action=xdotool key super+6>\xf03e</action>" --img
         , className =? "Mirage"         --> doShift "<action=xdotool key super+6>\xf03e</action>" 
