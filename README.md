@@ -6,27 +6,27 @@ A custom XMonad config for Arch Linux.
    <!-- I know, very ugly. --> 
 
 ## Installation
-* Installing git
+- Installing git
 ``` 
  sudo pacman -S git
 ```
 
-* Verify:
+- Verify:
 ``` 
 git --version
 ```
 
-* Download
+- Download
 ``` 
 git clone https://github.com/AnapalOne/.xmonad
 ```  
 
-* Automatically setup xmonad config
+- Automatically setup xmonad config
 ```
 setup.sh
 ```
 
-   * If you only want to apply this config to your xmonad, simply copy `xmonad.hs` to `~/.xmonad/`  
+   - If you only want to apply this config to your xmonad, simply copy `xmonad.hs` to `~/.xmonad/`  
 ``` 
 cp xmonad.hs ~/.xmonad/xmonad.hs
 ```
