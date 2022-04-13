@@ -18,6 +18,7 @@ sudo dnf install git
 sudo yum install git
 ```
 
+
 Verify:
 ``` 
 git --version
