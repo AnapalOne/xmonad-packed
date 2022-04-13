@@ -43,7 +43,7 @@ chmod +x ./setup.sh
 ./setup.sh
 ```
 
-- If you want to only apply this config to your xmonad, simply copy `xmonad.hs` to `~/.xmonad/`
+- If you want to only apply the xmonad config to your xmonad, simply copy `xmonad.hs` to `~/.xmonad/`
 - If you want to only apply xmobar, copy `xmobar` to `~/.xmobarrc/`
 
 ## List of packages
