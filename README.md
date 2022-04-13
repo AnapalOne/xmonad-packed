@@ -33,7 +33,7 @@ cd xmonad
 ```
 
 ## Setup
-- Automatically setup XMonad config with installed packages
+- Automatically install XMonad with installed packages
 #### Give permission to execute script
 ```
 chmod +x ./setup.sh
