@@ -13,7 +13,7 @@ sudo pacman -S git
 ```
   - Verify: `git --version`
 
-#### yay
+### yay
 ```
 git clone https://aur.archlinux.org/yay.git
 ```
