@@ -42,6 +42,7 @@ setup.sh
 | pamixer                                            | volume control w/ gui |
 | youtube-dl                                         | youtube video/audio downloader |
 | nerd-fonts-complete, ttf-iosevka, ttc-iosevka-aile | fonts |
+| xdotool                                            | input emulator |
 | htop                                               | program manager |
 | ncdu                                               | file manager |
 | df                                                 | system filesize |
