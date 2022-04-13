@@ -1,9 +1,7 @@
 ## XMonad Configuration by Anapal
 ![alt text](https://github.com/AnapalOne/pictures/blob/master/2022-04-13_17-41.png "XMonad")
-<pre>
    **NOTES: This configuration installs a lot of packages and programs, see config/help for list of programs.**   
-          **Assumes that a desktop environment has already been installed.**
-</pre>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Assumes that a desktop environment has already been installed.**
 
 ### Install git
 ``` 
