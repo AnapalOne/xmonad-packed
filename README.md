@@ -23,6 +23,11 @@ git clone https://github.com/AnapalOne/.xmonad
 
 ## Setup
 - Automatically setup XMonad config with installed packages
+### Give permission to execute script
+```
+chmod +x ./setup.sh
+```
+### Run script
 ```
 setup.sh
 ```
