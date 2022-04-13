@@ -1,6 +1,6 @@
-# XMonad Configuration by Anapal
+## XMonad Configuration by Anapal
 
-## Install Git
+### Install Git
    Arch Linux:
 ``` 
  sudo pacman -S git
@@ -16,8 +16,7 @@ sudo dnf install git
 *or*
 ``` 
 sudo yum install git
-```
-
+```  
 
 Verify:
 ``` 
@@ -25,13 +24,13 @@ git --version
 ```
 
 
-## Download
+### Download
 ``` 
 git clone https://github.com/AnapalOne/.xmonad
-```
+```  
 
 
-## Installation
+### Installation
 To apply this config to your xmonad, simply copy `xmonad.hs` to `~/.xmonad/`
 ``` 
 cd .xmonad
