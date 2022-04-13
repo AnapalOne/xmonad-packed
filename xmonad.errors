@@ -1,6 +1,0 @@
-
-xmonad.hs:234:54: error:
-    Variable not in scope: nsHideOnFocusLoss :: X b0
-    |
-234 |         , logHook            = refocusLastLogHook >> nsHideOnFocusLoss $ dynamicLogWithPP . namedScratchpadFilterOutWorkspacePP $ def
-    |                                                      ^^^^^^^^^^^^^^^^^
