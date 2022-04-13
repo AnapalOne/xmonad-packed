@@ -1,5 +1,5 @@
-# XMonad Config by Anapal
-### A custom XMonad config for Arch Linux.
+# My xmonad configuration
+### A custom [xmonad](https://xmonad.org) configuration for Arch Linux by Anapal.
 
 ![alt text](https://github.com/AnapalOne/pictures/blob/master/2022-04-13_17-41.png "xmonad")
    **NOTES: This configuration installs a lot of packages and programs, see the [list of packages](https://github.com/AnapalOne/xmonad#list-of-packages)**   
@@ -33,7 +33,7 @@ cd xmonad
 ```
 
 ## Setup
-- Automatically install XMonad with installed packages
+- Automatically install xmonad with installed packages
 #### Give permission to execute script
 ```
 chmod +x ./setup.sh
