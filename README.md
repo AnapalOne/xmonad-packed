@@ -1,6 +1,6 @@
 ## XMonad Configuration by Anapal
 
-### Install Git
+### Install git
 ``` 
  sudo pacman -S git
 ```
