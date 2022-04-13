@@ -26,7 +26,7 @@ git clone https://github.com/AnapalOne/.xmonad
 setup.sh
 ```
 
-  - If you only want to apply this config to your xmonad, simply copy `xmonad.hs` to `~/.xmonad/`
+-- If you only want to apply this config to your xmonad, simply copy `xmonad.hs` to `~/.xmonad/`
 ``` 
 cp xmonad.hs ~/.xmonad/xmonad.hs
 ```
