@@ -1,15 +1,15 @@
 # XMonad Configuration by Anapal
 
 ## If you haven't already, install git
-Arch Linux:
+   Arch Linux:
 ``` 
  sudo pacman -S git
 ```
-Ubuntu / Debian:
+   Ubuntu / Debian:
 ```
  sudo apt-get install git
 ```
-Fedora:
+   Fedora:
 ``` 
 sudo dnf install git
 ``` 
@@ -18,7 +18,7 @@ sudo dnf install git
 sudo yum install git
 ```
 
-### Verify:
+Verify:
 ``` 
 git --version
 ```
