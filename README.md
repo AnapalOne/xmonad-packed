@@ -6,13 +6,13 @@ A custom XMonad config for Arch Linux.
    <!-- I know, very ugly. --> 
 
 ## Requirements
-- git
+#### git
 ``` 
 sudo pacman -S git
 ```
   - Verify: `git --version`
 
-- yay
+#### yay
 ```
 git clone https://aur.archlinux.org/yay.git
 ```
@@ -23,7 +23,7 @@ cd yay
 makepkg -si
 ```
 
-- Download
+## Download
 ``` 
 git clone https://github.com/AnapalOne/.xmonad
 ```  
