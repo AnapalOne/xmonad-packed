@@ -1,7 +1,7 @@
 # XMonad Config by Anapal
 A custom XMonad config for Arch Linux.
 ![alt text](https://github.com/AnapalOne/pictures/blob/master/2022-04-13_17-41.png "XMonad")
-   **NOTES: This configuration installs a lot of packages and programs, see setup.sh for the list of installing packages.**   
+   **NOTES: This configuration installs a lot of packages and programs, see the [list of packages](https://github.com/AnapalOne/xmonad#list-of-packages)**   
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Assumes that a desktop environment has already been installed.**
    <!-- I know, very ugly. --> 
 
