@@ -1,4 +1,4 @@
-# My xmonad configuration
+# My xmonad config
 ### A custom [xmonad](https://xmonad.org) configuration for Arch Linux by Anapal.
 
 ![alt text](https://github.com/AnapalOne/xmonad/blob/main/2022-04-13_17-41.png "xmonad")
