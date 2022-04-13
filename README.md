@@ -16,12 +16,12 @@ sudo dnf install git
 *or*
 ``` 
 sudo yum install git
-```  
+```<br/>
 
 Verify:
 ``` 
 git --version
-```
+```<br/>
 
 
 ### Download
