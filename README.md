@@ -21,12 +21,40 @@ git --version
 git clone https://github.com/AnapalOne/.xmonad
 ```  
 
-- Automatically setup xmonad config
+## Setup
+- Automatically setup XMonad config with installed packages
 ```
 setup.sh
 ```
 
--- If you only want to apply this config to your xmonad, simply copy `xmonad.hs` to `~/.xmonad/`
-``` 
-cp xmonad.hs ~/.xmonad/xmonad.hs
-```
+- If you want to only apply this config to your xmonad, simply copy `xmonad.hs` to `~/.xmonad/`
+- If you want to only apply xmobar, copy `xmobar` to `~/.xmobarrc/`
+
+## List of packages
+| Packages                                           | Description |
+| ---------------------------------------------------|:-------------:|
+| alacritty                                          | terminal emulator |
+| xmonad, xmonad-contrib                             | main window manager |
+| pulseaudio                                         | audio manager |
+| pamixer                                            | volume control w/ gui |
+| youtube-dl                                         | youtube video/audio downloader |
+| nerd-fonts-complete, ttf-iosevka, ttc-iosevka-aile | fonts |
+| htop                                               | program manager |
+| ncdu                                               | file manager |
+| df                                                 | system filesize |
+| iwctl                                              | internet manager |
+| pacman, yay                                        | package manager (yay for AUR) |
+| subl, nano, vim                                    | text editors |
+| xprop                                              | shows information about a window |
+| flameshot                                          | capture screen |
+| tlp, tlpui                                         | battery manager |
+| nitrogen                                           | wallpaper |
+| chromium                                           | browser |
+| krita                                              | drawing software |
+| gimp                                               | image editor/drawing software |
+| mpv, vlc                                           | video software |
+| audacity                                           | audio software |
+| mirage                                             | image viewer |
+| spotify                                            | music |
+| discord                                            | text and voice app |
+| github-desktop                                     | github desktop |
