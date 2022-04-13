@@ -1,0 +1,35 @@
+-------------------------------------------------
+-- List of programs:
+-------------------------------------------------
+
+// terminal:
+   htop                 -- program manager
+   ncdu                 -- file manager
+   df                   -- system filesize
+   iwctl                -- internet manager
+   pacman, yay          -- package manager (yay for AUR)
+   subl, nano, vim      -- text editor 
+   xprop                -- shows information about a window
+   flameshot            -- equivilent to prntscr in Windows (WinKey + Print)
+   ani-cli              -- anime
+   pamixer              -- volume control
+   tlp, tlpui           -- battery manager
+   youtube-dl           -- youtube video downloader
+
+// programs (WinKey + R to run):
+   nitrogen       -- wallpaper
+   chromium       -- browser
+   krita          -- drawing software
+   gimp           -- image editor/drawing software
+   mpv, vlc       -- video software
+   audacity       -- audio software
+   mirage         -- image viewer
+   spotify        -- music
+   discord        -- text and voice app
+   github-desktop -- github
+
+
+Do pacman -Qe to list all installed packages.
+See ~/.xmonad/xmonad.hs under [Key Binds] for key combinations.
+
+Press q to exit.
