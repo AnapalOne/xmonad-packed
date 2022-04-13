@@ -1,4 +1,5 @@
 ## XMonad Configuration by Anapal
+**NOTE: This configuration is to be used with `.xmobarrc` and `.config` (see repositories)**
 
 ### Install git
 ``` 
