@@ -180,17 +180,18 @@ myScratchpads =
         -- > doShift to open only in a specific workspace
 myManageHook :: Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll
-        [ className =? "Alacritty"     --> doShift "<action=xdotool key super+1>\xf120</action>" --ter
-        , className =? "Subl"          --> doShift "<action=xdotool key super+2>\xf718</action>" --txt
+        [ className =? "Alacritty"      --> doShift "<action=xdotool key super+1>\xf120</action>" --ter
+        , className =? "Subl"           --> doShift "<action=xdotool key super+2>\xf718</action>" --txt
         , className =? "libreoffice-startcenter" --> doShift "<action=xdotool key super+2>\xf718</action>"
-        , className =? "Chromium"      --> doShift "<action=xdotool key super+3>\xe743</action>" --www
-        , className =? "Audacity"      --> doShift "<action=xdotool key super+4>\xf121</action>" --dev
-        , className =? "vlc"           --> doShift "<action=xdotool key super+5>\xf008</action>" --vid
-        , className =? "Gimp"          --> doShift "<action=xdotool key super+6>\xf03e</action>" --img
-        , className =? "Mirage"        --> doShift "<action=xdotool key super+6>\xf03e</action>" 
-        , className =? "discord"       --> doShift "<action=xdotool key super+7>\xf1d7</action>" --chat
-        , className =? "krita"         --> doShift "<action=xdotool key super+9>\xf1fc</action>" --art
-        , className =? "Mirage"        --> doFloat
+        , className =? "Chromium"       --> doShift "<action=xdotool key super+3>\xe743</action>" --www
+        , className =? "Audacity"       --> doShift "<action=xdotool key super+4>\xf121</action>" --dev
+        , className =? "Github Desktop" --> doShift "<action=xdotool key super+4>\xf121</action>"
+        , className =? "vlc"            --> doShift "<action=xdotool key super+5>\xf008</action>" --vid
+        , className =? "Gimp"           --> doShift "<action=xdotool key super+6>\xf03e</action>" --img
+        , className =? "Mirage"         --> doShift "<action=xdotool key super+6>\xf03e</action>" 
+        , className =? "discord"        --> doShift "<action=xdotool key super+7>\xf1d7</action>" --chat
+        , className =? "krita"          --> doShift "<action=xdotool key super+9>\xf1fc</action>" --art
+        , className =? "Mirage"         --> doFloat
         ]
 
 spotifyWindowNameFix = dynamicPropertyChange "WM_NAME" (title =? "Spotify" --> doShift "<action=xdotool key super+8>\xf886</action>") --mus
