@@ -39,7 +39,7 @@ Config {
                              , "--low"      , "darkgreen"
                              , "--normal"   , "darkorange" --darkorange
                              , "--high"     , "darkred" --darkred
-                             ] 50
+                             ] 10
 
         -- cpu activity monitor
         , Run Cpu            [ "--template" , "<fn=1>\xf108</fn> CPU: <total>%"
@@ -48,7 +48,7 @@ Config {
                              , "--low"      , "darkgreen"
                              , "--normal"   , "darkorange"
                              , "--high"     , "darkred"
-                             ] 75
+                             ] 50
 
         -- cpu core temperature monitor
         , Run CoreTemp       [ "--template" , "<core0>°C"
@@ -57,7 +57,7 @@ Config {
                              , "--low"      , "darkgreen"
                              , "--normal"   , "darkorange"
                              , "--high"     , "darkred"
-                             ] 75
+                             ] 50
                           
         -- memory usage monitor
         , Run Memory         [ "--template" ,"<fn=1>\xf2db</fn> RAM: <usedratio>%"
@@ -66,7 +66,7 @@ Config {
                              , "--low"      , "darkgreen"
                              , "--normal"   , "darkorange"
                              , "--high"     , "darkred"
-                             ] 75
+                             ] 60
 
         -- battery monitor (<timeleft> in discharging status for battery time left)
         , Run Battery        [ "--template" , "<fn=1>\xf240</fn> <acstatus>"
