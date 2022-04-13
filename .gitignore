@@ -1,3 +1,4 @@
 .xmonad/
+xmonad.errors
 xmonad.hs.backup
 xmobar
