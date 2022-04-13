@@ -27,6 +27,7 @@
    spotify        -- music
    discord        -- text and voice app
    github-desktop -- github
+   libreoffice    -- office suite
 
 
 Do pacman -Qe to list all installed packages.
