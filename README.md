@@ -34,6 +34,9 @@ setup.sh
 | Packages                                           | Description |
 | ---------------------------------------------------|:-------------:|
 | alacritty                                          | terminal emulator |
+| picom                                              | compositor |
+| libreoffice                                        | office suite |
+| xf86-input-libinput, libinput-gestures             | input device handler, touchscreen, touchpad drivers |
 | xmonad, xmonad-contrib                             | main window manager |
 | pulseaudio                                         | audio manager |
 | pamixer                                            | volume control w/ gui |
