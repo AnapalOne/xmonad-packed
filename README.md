@@ -49,21 +49,21 @@ chmod +x ./setup.sh
 ## List of packages
 | Packages                                           | Description |
 | ---------------------------------------------------|:-------------:|
+| xmonad, xmonad-contrib                             | window manager |
 | alacritty                                          | terminal emulator |
 | picom                                              | compositor |
 | libreoffice                                        | office suite |
 | xf86-input-libinput, libinput-gestures             | input device handler, touchscreen, touchpad drivers |
-| xmonad, xmonad-contrib                             | main window manager |
 | pulseaudio                                         | audio manager |
 | pamixer                                            | volume control w/ gui |
 | youtube-dl                                         | youtube video/audio downloader |
 | nerd-fonts-complete, ttf-iosevka, ttc-iosevka-aile | fonts |
 | xdotool                                            | input emulator |
 | htop                                               | program manager |
-| ncdu                                               | file manager |
-| df                                                 | system filesize |
+| ncdu                                               | disk usage analyzer |
+| nnn                                                | file manager |
 | iwctl                                              | internet manager |
-| pacman, yay                                        | package manager (yay for AUR) |
+| yay                                                | AUR helper |
 | subl, nano, vim                                    | text editors |
 | xprop                                              | shows information about a window |
 | flameshot                                          | capture screen |
