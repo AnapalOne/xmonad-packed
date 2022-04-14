@@ -12,6 +12,7 @@ import XMonad.Config.Desktop
 
 import XMonad.Actions.GridSelect
 import XMonad.Actions.CycleWS
+import XMonad.Actions.FloatKeys
 
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Grid
@@ -92,7 +93,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_space ), sendMessage NextLayout)             --rotate layout
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf) --reset layout
     , ((modm,               xK_n     ), refresh)                            --resize window to correct size
-    , ((modm .|. shiftMask, xK_Tab   ), withFocused toggleFloat)            --toggle between tiled and floating window
     , ((modm,               xK_Tab   ), windows W.focusDown)                --rotate focus between windows
     , ((modm,               xK_m     ), windows W.focusMaster )             --focus to master window
     , ((modm,               xK_Return), windows W.swapMaster  )             --swap focus master and window
@@ -101,11 +101,22 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_comma ), sendMessage Shrink)                 --shrink master window
     , ((modm,               xK_period), sendMessage Expand)                 --expand master window
 
+    -- //floating windows
+    , ((modm .|. shiftMask, xK_Tab   ), withFocused toggleFloat)                        --toggle between tiled and floating window
+    , ((modm,               xK_Up    ), withFocused (keysMoveWindow (0,-10)))           --move floating window
+    , ((modm,               xK_Down  ), withFocused (keysMoveWindow (0,10)))            --
+    , ((modm,               xK_Left  ), withFocused (keysMoveWindow (-10,0)))           --
+    , ((modm,               xK_Right ), withFocused (keysMoveWindow (10,0)))            --
+    , ((modm .|. controlMask, xK_Up    ), withFocused (keysResizeWindow (0,-10) (0,0))) --resize floating window
+    , ((modm .|. controlMask, xK_Down  ), withFocused (keysResizeWindow (0,10) (0,0)))  --
+    , ((modm .|. controlMask, xK_Left  ), withFocused (keysResizeWindow (-10,0) (0,0))) --
+    , ((modm .|. controlMask, xK_Right ), withFocused (keysResizeWindow (10,0) (0,0)))  --
+
     -- //system commands
-    , ((modm,               xK_b     ), sendMessage ToggleStruts)                     --toggle xmobar
-    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))                    --logout xmonad
-    , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart") --recompiles xmonad
-    , ((modm .|. shiftMask, xK_slash ), spawn "~/.config/xmonad/scripts/help.sh")     -- show list of programs
+    , ((modm,               xK_b     ), sendMessage ToggleStruts)                      --toggle xmobar
+    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))                     --logout xmonad
+    , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")  --recompiles xmonad
+    , ((modm .|. shiftMask, xK_slash ), namedScratchpadAction myScratchpads "help")    -- show list of programs
     , ((modm .|. shiftMask, xK_F1    ), spawn "systemctl hibernate")
     , ((0,     xF86XK_MonBrightnessUp), spawn "lux -a 10%")
     , ((0,   xF86XK_MonBrightnessDown), spawn "lux -s 5%")
@@ -114,10 +125,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0,           xF86XK_AudioMute), spawn "pamixer -t")
 
     -- // programs
-    , ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)       --open terminal
-    , ((modm,               xK_Print ), spawn "flameshot gui")              --equivelent to prntscr
-    , ((modm,               xK_r     ), spawn "dmenu_run")                  --run program
-    , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")                      --
+    , ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)  --open terminal
+    , ((modm,               xK_Print ), spawn "flameshot gui")         --equivelent to prntscr
+    , ((modm,               xK_r     ), spawn "dmenu_run")             --run program
+    , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")                 --
     
     -- // scratchpad
     , ((modm .|. controlMask, xK_Return), namedScratchpadAction myScratchpads "ScrP_alacritty")
@@ -161,6 +172,7 @@ myScratchpads =
          , NS "ScrP_htop" "alacritty -t htop -e htop" (title =? "htop") floatScratchpad
          , NS "ScrP_vim" "alacritty -t vim -e vim" (title =? "vim") floatScratchpad
          , NS "ScrP_ncdu" "alacritty -t ncdu -e bash -c 'ncdu /'" (title =? "ncdu") floatScratchpad
+         , NS "help" "~/.config/xmonad/scripts/help.sh" (title =? "list of programs") floatScratchpad
          ]
     where 
        floatScratchpad = customFloating $ W.RationalRect l t w h
@@ -181,7 +193,7 @@ myScratchpads =
         -- > doShift to open only in a specific workspace
 myManageHook :: Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll
-        [ className =? "Alacritty"      --> doShift "<action=xdotool key super+1>\xf120</action>" --ter
+        [ title     =? "alacritty"      --> doShift "<action=xdotool key super+1>\xf120</action>" --ter
         , className =? "Subl"           --> doShift "<action=xdotool key super+2>\xf718</action>" --txt
         , className =? "libreoffice-startcenter" --> doShift "<action=xdotool key super+2>\xf718</action>"
         , className =? "Chromium"       --> doShift "<action=xdotool key super+3>\xe743</action>" --www
