@@ -47,7 +47,7 @@ chmod +x ./setup.sh
 | Packages                                           | Description |
 | ---------------------------------------------------|:-------------:|
 | alacritty                                          | terminal emulator |
-| 7zip                                               | archiving and compression of files |
+| p7zip                                              | archiving and compression of files |
 | xmobar                                             | status bar |
 | picom                                              | compositor |
 | libreoffice                                        | office suite |
