@@ -7,7 +7,7 @@
 ## Requirements
 ### xmonad
 - As you've already installed Arch Linux, I assume you can install xmonad.
-  - I recommend using xinit to automatically start xmonad
+  - I recommend using [xinit](https://wiki.archlinux.org/title/Xinit) to automatically start xmonad
 - Read the wiki: https://wiki.archlinux.org/title/Xmonad
 ### git
 ``` 
