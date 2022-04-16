@@ -15,26 +15,18 @@ sudo pacman -S git
 
 ### yay
 ```
-git clone https://aur.archlinux.org/yay.git
-```
-```
-cd yay
+git clone https://aur.archlinux.org/yay.git && cd yay
 ```
 ```
 makepkg -si
-```
-
-## Download
 ``` 
-git clone https://github.com/AnapalOne/xmonad
-```  
-```
-cd xmonad
-```
 
 ## Setup
-- Automatically install xmonad with installed packages
-#### Give permission to execute script
+#### Download xmonad repo
+``` 
+git clone https://github.com/AnapalOne/xmonad && cd xmonad
+``` 
+#### Give permission to execute script that automatically installs xmonad with packages
 ```
 chmod +x ./setup.sh
 ```
