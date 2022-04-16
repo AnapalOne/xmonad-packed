@@ -2,11 +2,12 @@
 ### A custom [xmonad](https://xmonad.org) configuration for Arch Linux by Anapal.
 
 ![alt text](https://github.com/AnapalOne/xmonad/blob/main/2022-04-13_17-41.png "xmonad")
-   **NOTES: This configuration installs a lot of packages and programs, see the [list of packages](https://github.com/AnapalOne/xmonad#list-of-packages).**   
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Assumes that a desktop environment has already been installed.**
-   <!-- I know, very ugly. --> 
+   **NOTES: This configuration installs a lot of packages and programs, see the [list of packages](https://github.com/AnapalOne/xmonad#list-of-packages).**
 
 ## Requirements
+### xmonad
+- As you've already installed Arch Linux, I assume you can install xmonad.
+- Read the wiki: https://wiki.archlinux.org/title/Xmonad
 ### git
 ``` 
 sudo pacman -S git
@@ -26,7 +27,7 @@ makepkg -si
 ``` 
 git clone https://github.com/AnapalOne/xmonad && cd xmonad
 ``` 
-#### Give permission to execute script that automatically installs xmonad with packages
+#### Give permission to execute script that automatically installs packages and configures xmonad
 ```
 chmod +x ./setup.sh
 ```
@@ -41,7 +42,6 @@ chmod +x ./setup.sh
 ## List of packages
 | Packages                                           | Description |
 | ---------------------------------------------------|:-------------:|
-| xmonad, xmonad-contrib                             | window manager |
 | alacritty                                          | terminal emulator |
 | picom                                              | compositor |
 | libreoffice                                        | office suite |
