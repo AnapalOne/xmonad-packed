@@ -26,6 +26,9 @@ git clone https://aur.archlinux.org/yay.git && cd yay
 makepkg -si
 ``` 
 
+### Any graphical display managers
+- List of display managers: https://wiki.archlinux.org/title/Display_manager
+
 ## Setup
 #### Download xmonad repo
 ``` 
