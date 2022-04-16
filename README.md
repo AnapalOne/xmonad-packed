@@ -9,7 +9,7 @@
 ```
 sudo pacman -S xmonad xmonad-contrib
 ```
-- I recommend using [xinit](https://wiki.archlinux.org/title/Xinit) to automatically start xmonad
+- I recommend using [xinit](https://wiki.archlinux.org/title/Xinit) to automatically start xmonad *or* to use a [display manager](https://wiki.archlinux.org/title/Display_manager).
 - Read the wiki for more details: https://wiki.archlinux.org/title/Xmonad
 
 ### git
@@ -25,9 +25,6 @@ git clone https://aur.archlinux.org/yay.git && cd yay
 ```
 makepkg -si
 ``` 
-
-### Any graphical display managers
-- List of display managers: https://wiki.archlinux.org/title/Display_manager
 
 ## Setup
 #### Download xmonad repo
