@@ -47,6 +47,7 @@ chmod +x ./setup.sh
 | Packages                                           | Description |
 | ---------------------------------------------------|:-------------:|
 | alacritty                                          | terminal emulator |
+| 7zip                                               | archiving and compression of files |
 | xmobar                                             | status bar |
 | picom                                              | compositor |
 | libreoffice                                        | office suite |
@@ -82,3 +83,8 @@ chmod +x ./setup.sh
 - Read the pinned comment in https://aur.archlinux.org/packages/nerd-fonts-complete.
 ### sublime-text-4
 - Sublime Text may not install properly, so be sure to reinstall it after booting into xmonad.
+### xmobar icons showing as white/empty/null boxes
+- nerd-fonts-complete may not be working in this case, so you can alternatively download the font at [this site](https://www.nerdfonts.com/font-downloads).
+  - To install for a single user, move the .ttf/.otf files to `~/.local/share/fonts/`.
+  - For a system wide installation, move them to `/usr/local/share/fonts/`.
+  - More information can be read at https://wiki.archlinux.org/title/fonts.
