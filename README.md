@@ -80,3 +80,5 @@ chmod +x ./setup.sh
 #### From testing, some packages may not work. Here are some that I've found that might help you.
 ### nerd-fonts-complete checksum fail
 - Read the pinned comment in https://aur.archlinux.org/packages/nerd-fonts-complete.
+### sublime-text-4
+- Sublime Text may not install properly, so be sure to reinstall it after booting into xmonad.
