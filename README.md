@@ -79,12 +79,18 @@ chmod +x ./setup.sh
 
 ## Troubleshooting
 #### From testing, some packages may not work. Here are some that I've found that might help you.
+
 ### nerd-fonts-complete checksum fail
 - Read the pinned comment in https://aur.archlinux.org/packages/nerd-fonts-complete.
+
+
 ### sublime-text-4
 - Sublime Text may not install properly, so be sure to reinstall it after booting into xmonad.
+
+
 ### xmobar icons showing as white/empty/null boxes
 - nerd-fonts-complete may not be working in this case, so you can alternatively download the font at [this site](https://www.nerdfonts.com/font-downloads).
   - To install for a single user, move the .ttf/.otf files to `~/.local/share/fonts/`.
   - For a system wide installation, move them to `/usr/local/share/fonts/`.
   - More information can be read at https://wiki.archlinux.org/title/fonts.
+- Search the nerd font by doing `fc-list : family | less` and replace the font in `~/.xmobarrc/xmobar` with your preferred nerd font family.
