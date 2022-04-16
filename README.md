@@ -8,8 +8,10 @@
 ### xmonad
 ```
 sudo pacman -S xmonad xmonad-contrib
+```
 - I recommend using [xinit](https://wiki.archlinux.org/title/Xinit) to automatically start xmonad
 - Read the wiki for more details: https://wiki.archlinux.org/title/Xmonad
+
 ### git
 ``` 
 sudo pacman -S git
