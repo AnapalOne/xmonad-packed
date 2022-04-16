@@ -50,6 +50,7 @@ chmod +x ./setup.sh
 | Packages                                           | Description |
 | ---------------------------------------------------|:-------------:|
 | alacritty                                          | terminal emulator |
+| xmobar                                             | status bar |
 | picom                                              | compositor |
 | libreoffice                                        | office suite |
 | xf86-input-libinput, libinput-gestures             | input device handler, touchscreen, touchpad drivers |
