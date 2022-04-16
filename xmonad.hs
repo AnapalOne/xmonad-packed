@@ -229,7 +229,7 @@ myStartupHook = do
 ---------------------------------------------------------
 
 main = do
-   xmproc <- spawnPipe "xmobar -x 0 /home/anapal/.xmobarrc/xmobar"
+   xmproc <- spawnPipe "xmobar -x 0 ~/.xmobarrc/xmobar"
    xmonad $ docks desktopConfig
         { terminal           = myTerminal
         , modMask            = myModMask
