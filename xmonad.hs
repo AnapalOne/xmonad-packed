@@ -206,7 +206,6 @@ myManageHook = composeAll
         , className =? "Mirage"         --> doShift "<action=xdotool key super+6>\xf03e</action>" 
         , className =? "discord"        --> doShift "<action=xdotool key super+7>\xf1d7</action>" --chat
         , className =? "krita"          --> doShift "<action=xdotool key super+9>\xf1fc</action>" --art
-        , className =? "Mirage"         --> doFloat
         ]
 
 spotifyWindowNameFix = dynamicPropertyChange "WM_NAME" (title =? "Spotify" --> doShift "<action=xdotool key super+8>\xf886</action>") --mus
@@ -217,7 +216,7 @@ myEventHook = fullscreenEventHook <+> spotifyWindowNameFix
         --Executes whenever xmonad starts
 myStartupHook = do
         spawnOnce "nitrogen --restore &"
-        spawnOnce "picom --vsync &"
+        spawnOnce "picom &"
         spawnOnce "~/.config/xmonad/scripts/startup_screen.sh &"
         spawnOnce "xsetroot -cursor_name left_ptr"
         spawnOnce "libinput-gestures &"
