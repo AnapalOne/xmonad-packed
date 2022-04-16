@@ -1,5 +1,5 @@
-bash -c 'sudo pacman -S alacritty xterm dmenu picom xf86-input-libinput xmobar htop ncdu vim nano nnn xorg-xprop flameshot pulseaudio-alsa pulseaudio-bluetooth pamixer tlp youtube-dl nitrogen chromium krita xdotool gimp mpv vlc audacity discord libreoffice-still'
-bash -c 'yay -S --mflags --skipinteg tlpui-git spotify github-desktop-bin nerd-fonts-complete ttf-iosevka ttc-iosevka-aile mirage libinput-gestures sublime-text-4'
+bash -c 'sudo pacman -S alacritty xterm dmenu picom xf86-input-libinput xmobar htop ncdu vim nano nnn xorg-xprop flameshot pulseaudio-alsa pulseaudio-bluetooth pamixer tlp youtube-dl nitrogen chromium krita xdotool gimp mpv vlc audacity discord libreoffice-still ttc-iosevka ttc-iosevka-aile	ttc-iosevka-curly'
+bash -c 'yay -S --mflags --skipinteg tlpui-git spotify github-desktop-bin nerd-fonts-complete mirage libinput-gestures sublime-text-4'
 bash -c 'mkdir ~/.xmonad && cp xmonad.hs ~/.xmonad/'
 bash -c 'mkdir ~/.xmobarrc && cp xmobar ~/.xmobarrc/'
 bash -c 'mkdir -p ~/.config/alacritty && cp config/alacritty.yml ~/.config/alacritty/'
