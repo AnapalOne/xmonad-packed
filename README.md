@@ -57,7 +57,8 @@ chmod +x ./setup.sh
 | pulseaudio                                         | audio manager |
 | pamixer                                            | volume control w/ gui |
 | youtube-dl                                         | youtube video/audio downloader |
-| nerd-fonts-complete, ttf-iosevka, ttc-iosevka-aile, ttc-iosevka-curly, ttf-bitstream-vera | fonts |
+| nerd-fonts-complete, ttf-iosevka, ttc-iosevka-aile, 
+   ttc-iosevka-curly, ttf-bitstream-vera | fonts |
 | xdotool                                            | input emulator |
 | htop                                               | program manager |
 | ncdu                                               | disk usage analyzer |
