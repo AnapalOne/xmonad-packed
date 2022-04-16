@@ -75,3 +75,8 @@ chmod +x ./setup.sh
 | spotify                                            | music |
 | discord                                            | text and voice app |
 | github-desktop                                     | github desktop |
+
+## Troubleshooting
+#### From testing, some packages may not work. Here are some that I've found that might help you.
+### nerd-fonts-complete checksum fail
+- Read the pinned comment in https://aur.archlinux.org/packages/nerd-fonts-complete.
