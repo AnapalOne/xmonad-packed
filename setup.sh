@@ -1,4 +1,4 @@
-bash -c 'sudo pacman -S alacritty xterm wget dmenu picom xf86-input-libinput xmobar htop ncdu vim nano nnn xorg-xprop p7zip flameshot pulseaudio-alsa pulseaudio-bluetooth pamixer tlp youtube-dl nitrogen chromium krita xdotool gimp mpv vlc audacity discord libreoffice-still ttc-iosevka ttc-iosevka-aile ttc-iosevka-curly ttf-bitstream-vera ttf-font ttf-nerd-fonts-symbols-mono base-devel'
+bash -c 'sudo pacman -S alacritty xterm wget dmenu picom xf86-input-libinput xmobar htop ncdu vim nano nnn xorg xorg-xinit p7zip flameshot pulseaudio-alsa pulseaudio-bluetooth pamixer tlp youtube-dl nitrogen chromium krita xdotool gimp mpv vlc audacity discord libreoffice-still ttc-iosevka ttc-iosevka-aile ttc-iosevka-curly ttf-bitstream-vera ttf-font ttf-nerd-fonts-symbols-mono base-devel'
 bash -c 'yay -S --mflags --skipinteg tlpui-git spotify github-desktop-bin mirage libinput-gestures sublime-text-4'
 bash -c 'mkdir ~/.xmonad && cp xmonad.hs ~/.xmonad/'
 bash -c 'mkdir ~/.xmobarrc && cp xmobar ~/.xmobarrc/'
