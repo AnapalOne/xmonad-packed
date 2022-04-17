@@ -1,6 +1,6 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-## A custom [xmonad](https://xmonad.org) configuration with clickable workspaces, easy naviagation, and packed with tons of [pre-installed packages](https://github.com/AnapalOne/xmonad#list-of-packages) for Arch Linux.
+## A custom [xmonad](https://xmonad.org) configuration with clickable workspaces and easy naviagation, packed with tons of [pre-installed packages](https://github.com/AnapalOne/xmonad#list-of-packages) for Arch Linux.
 
 ![alt text](https://github.com/AnapalOne/xmonad/blob/main/2022-04-13_17-41.png "xmonad")
 
@@ -45,7 +45,7 @@ reboot
 
 - If you want to only apply the xmonad config to your xmonad, simply copy `xmonad.hs` to `~/.xmonad/`
 - If you want to only apply xmobar, copy `xmobar` to `~/.xmobarrc/`
- ### And you're done! You may edit any of these configs to your liking.
+ ##### And you're done! You may edit any of these configs to your liking.
 
 ## List of packages
 | Packages                                           | Description |
@@ -82,7 +82,10 @@ reboot
 | github-desktop                                     | github desktop |
 
 ## Troubleshooting
-#### From testing, some packages may not work. Here are some that I've found that might help you.
+#### After installation, some packages may not work. Here are some that I've found that might help you.
 
 ### sublime-text-4
 - Sublime Text may not install properly, so be sure to reinstall it after booting into xmonad.
+
+### picom not working
+- This may be a result of one of your drivers not working, be sure to check them to see if there are any errors.
