@@ -39,6 +39,9 @@ chmod +x ./setup.sh
 ```
 ./setup.sh
 ```
+```
+reboot
+```
 
 - If you want to only apply the xmonad config to your xmonad, simply copy `xmonad.hs` to `~/.xmonad/`
 - If you want to only apply xmobar, copy `xmobar` to `~/.xmobarrc/`
