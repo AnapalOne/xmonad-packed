@@ -1,5 +1,6 @@
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-## A custom [xmonad](https://xmonad.org) configuration with clickable workspaces, easy naviagation, and packed with tons of [pre-installed packages](https://github.com/AnapalOne/xmonad#list-of-packages).
+## A custom [xmonad](https://xmonad.org) configuration with clickable workspaces, easy naviagation, and packed with tons of [pre-installed packages](https://github.com/AnapalOne/xmonad#list-of-packages) for Arch Linux.
 
 ![alt text](https://github.com/AnapalOne/xmonad/blob/main/2022-04-13_17-41.png "xmonad")
 
