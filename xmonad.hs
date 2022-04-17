@@ -203,6 +203,7 @@ myManageHook = composeAll
         , className =? "GitHub Desktop" --> doShift "<action=xdotool key super+4>\xf121</action>" --
         , className =? "Code"           --> doShift "<action=xdotool key super+4>\xf121</action>" --
         , className =? "vlc"            --> doShift "<action=xdotool key super+5>\xf008</action>" --vid
+        , className =? "mpv"            --> doShift "<action=xdotool key super+5>\xf008</action>" --
         , className =? "Gimp"           --> doShift "<action=xdotool key super+6>\xf03e</action>" --img
         , className =? "Mirage"         --> doShift "<action=xdotool key super+6>\xf03e</action>" --
         , className =? "discord"        --> doShift "<action=xdotool key super+7>\xf1d7</action>" --chat
