@@ -115,7 +115,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. controlMask, xK_Right ), withFocused (keysResizeWindow (10,0) (0,0)))  --
 
     -- //system commands
-    , ((modm,               xK_b     ), sendMessage ToggleStruts)                      --toggle xmobar
+    , ((modm,               xK_b     ), sendMessage ToggleStruts)                      --toggle xmobar to front of screen
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))                     --logout xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")  --recompiles xmonad
     , ((modm .|. shiftMask, xK_slash ), namedScratchpadAction myScratchpads "help")    -- show list of programs
@@ -129,14 +129,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- // programs
     , ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)  --open terminal
     , ((modm,               xK_Print ), spawn "flameshot gui")         --equivelent to prntscr
-    , ((modm,               xK_r     ), spawn "dmenu_run")             --run program
+    , ((modm,               xK_r     ), spawn "dmenu_run")             --run progravm
     , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")                 --
     
     -- // scratchpad
     , ((modm .|. controlMask, xK_Return), namedScratchpadAction myScratchpads "ScrP_alacritty")
-    , ((modm,                  xK_grave), namedScratchpadAction myScratchpads "ScrP_htop")
-    , ((modm .|. shiftMask,    xK_grave), namedScratchpadAction myScratchpads "ScrP_ncdu")
-    , ((modm .|. controlMask, xK_n     ), namedScratchpadAction myScratchpads "ScrP_vim")
+    , ((modm,                 xK_grave ), namedScratchpadAction myScratchpads "ScrP_htop")
+    , ((modm .|. shiftMask,   xK_grave ), namedScratchpadAction myScratchpads "ScrP_ncdu")
+    , ((modm,                 xK_v     ), namedScratchpadAction myScratchpads "ScrP_vim")
     ]
     ++
     -- mod-[1..9], Switch to workspace N
