@@ -1,5 +1,5 @@
-# My xmonad config
-### A custom [xmonad](https://xmonad.org) configuration with clickable workspaces, easy naviagation, and tons of pre-installed packages.
+
+## A custom [xmonad](https://xmonad.org) configuration with clickable workspaces, easy naviagation, and tons of pre-installed packages.
 
 ![alt text](https://github.com/AnapalOne/xmonad/blob/main/2022-04-13_17-41.png "xmonad")
    **NOTES: This configuration installs a lot of packages and programs, see the [list of packages](https://github.com/AnapalOne/xmonad#list-of-packages).**
@@ -45,6 +45,7 @@ reboot
 
 - If you want to only apply the xmonad config to your xmonad, simply copy `xmonad.hs` to `~/.xmonad/`
 - If you want to only apply xmobar, copy `xmobar` to `~/.xmobarrc/`
+  - You may edit any of these configs to your liking.
 
 ## List of packages
 | Packages                                           | Description |
