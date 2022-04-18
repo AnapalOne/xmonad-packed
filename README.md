@@ -3,6 +3,7 @@
 ## A custom [xmonad](https://xmonad.org) configuration with clickable workspaces and easy naviagation, packed with tons of [pre-installed packages](https://github.com/AnapalOne/xmonad#list-of-packages) for Arch Linux.
 
 ![alt text](https://github.com/AnapalOne/xmonad/blob/main/2022-04-13_17-41.png "xmonad")
+#### NOTE: **Requires the base Arch Linux OS installed.**
 
 ## Requirements
 ### xmonad
