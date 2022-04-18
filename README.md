@@ -26,7 +26,7 @@ git clone https://aur.archlinux.org/yay.git && cd yay
 makepkg -si
 ``` 
 
-## Setup
+## Installation
 #### Download xmonad repo
 ``` 
 git clone https://github.com/AnapalOne/xmonad && cd xmonad
