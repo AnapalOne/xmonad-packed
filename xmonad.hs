@@ -72,8 +72,8 @@ xmobarEscape = concatMap doubleLts
 
 myWorkspaces :: [String]
 myWorkspaces = clickable . (map xmobarEscape) 
-          -- $ ["ter","doc","www","dev","vid","img","chat","mus","art"]
-           $ ["\xf120", "\xf718", "\xe743", "\xf121", "\xf008", "\xf03e", "\xf1d7", "\xf886", "\xf1fc" ]
+            -- 2$ ["ter","doc","www","dev","vid","img","chat","mus","art"]
+            $ ["\xf120", "\xf718", "\xe743", "\xf121", "\xf008", "\xf03e", "\xf1d7", "\xf886", "\xf1fc"]
     where
           clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
                         (i,ws) <- zip [1..9] l,
@@ -109,10 +109,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_Down  ), withFocused (keysMoveWindow (0,10)))            --
     , ((modm,               xK_Left  ), withFocused (keysMoveWindow (-10,0)))           --
     , ((modm,               xK_Right ), withFocused (keysMoveWindow (10,0)))            --
-    , ((modm .|. controlMask, xK_Up    ), withFocused (keysResizeWindow (0,-10) (0,0))) --resize floating window
-    , ((modm .|. controlMask, xK_Down  ), withFocused (keysResizeWindow (0,10) (0,0)))  --
-    , ((modm .|. controlMask, xK_Left  ), withFocused (keysResizeWindow (-10,0) (0,0))) --
-    , ((modm .|. controlMask, xK_Right ), withFocused (keysResizeWindow (10,0) (0,0)))  --
+    , ((modm .|. shiftMask, xK_Up    ), withFocused (keysResizeWindow (0,-10) (0,0))) --resize floating window
+    , ((modm .|. shiftMask, xK_Down  ), withFocused (keysResizeWindow (0,10) (0,0)))  --
+    , ((modm .|. shiftMask, xK_Left  ), withFocused (keysResizeWindow (-10,0) (0,0))) --
+    , ((modm .|. shiftMask, xK_Right ), withFocused (keysResizeWindow (10,0) (0,0)))  --
 
     -- //system commands
     , ((modm,               xK_b     ), sendMessage ToggleStruts)                      --toggle xmobar to front of screen
@@ -138,6 +138,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask,   xK_grave ), namedScratchpadAction myScratchpads "ScrP_ncdu")
     , ((modm,                 xK_v     ), namedScratchpadAction myScratchpads "ScrP_vim")
     , ((modm,                 xK_m     ), namedScratchpadAction myScratchpads "ScrP_cmus")
+    , ((modm .|. shiftMask,   xK_m     ), namedScratchpadAction myScratchpads "ScrP_spt")
     ]
     ++
     -- mod-[1..9], Switch to workspace N
@@ -177,6 +178,7 @@ myScratchpads =
          , NS "ScrP_ncdu" "alacritty -t ncdu -e bash -c 'ncdu /'" (title =? "ncdu") floatScratchpad
          , NS "help" "~/.config/xmonad/scripts/help.sh" (title =? "list of programs") floatScratchpad
          , NS "ScrP_cmus" "alacritty -t cmus -e cmus" (title =? "cmus") floatScratchpad
+         , NS "ScrP_spt" "alacritty -t spotify-tui -e spt" (title =? "spotify-tui") floatScratchpad
          ]
     where 
        floatScratchpad = customFloating $ W.RationalRect l t w h
