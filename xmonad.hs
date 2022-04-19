@@ -137,6 +137,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,                 xK_grave ), namedScratchpadAction myScratchpads "ScrP_htop")
     , ((modm .|. shiftMask,   xK_grave ), namedScratchpadAction myScratchpads "ScrP_ncdu")
     , ((modm,                 xK_v     ), namedScratchpadAction myScratchpads "ScrP_vim")
+    , ((modm,                 xK_m     ), namedScratchpadAction myScratchpads "ScrP_cmus")
     ]
     ++
     -- mod-[1..9], Switch to workspace N
@@ -175,6 +176,7 @@ myScratchpads =
          , NS "ScrP_vim" "alacritty -t vim -e vim" (title =? "vim") floatScratchpad
          , NS "ScrP_ncdu" "alacritty -t ncdu -e bash -c 'ncdu /'" (title =? "ncdu") floatScratchpad
          , NS "help" "~/.config/xmonad/scripts/help.sh" (title =? "list of programs") floatScratchpad
+         , NS "ScrP_cmus" "alacritty -t cmus -e cmus" (title =? "cmus") floatScratchpad
          ]
     where 
        floatScratchpad = customFloating $ W.RationalRect l t w h
@@ -208,6 +210,7 @@ myManageHook = composeAll
         , className =? "Mirage"         --> doShift "<action=xdotool key super+6>\xf03e</action>" --
         , className =? "discord"        --> doShift "<action=xdotool key super+7>\xf1d7</action>" --chat
         , className =? "krita"          --> doShift "<action=xdotool key super+9>\xf1fc</action>" --art
+        , title     =? "sxiv"           --> doFloat
         ]
 
 spotifyWindowNameFix = dynamicPropertyChange "WM_NAME" (title =? "Spotify" --> doShift "<action=xdotool key super+8>\xf886</action>") --mus

@@ -63,7 +63,7 @@ reboot
 | xdotool                                            | input emulator |
 | htop                                               | program manager |
 | ncdu                                               | disk usage analyzer |
-| nnn                                                | file manager |
+| nnn, ranger                                        | file manager |
 | iwctl                                              | internet manager |
 | yay                                                | AUR helper |
 | subl, nano, vim                                    | text editors |
@@ -77,7 +77,7 @@ reboot
 | mpv, vlc                                           | video software |
 | audacity                                           | audio software |
 | mirage                                             | image viewer |
-| spotify                                            | music |
+| spotify, cmus                                      | music |
 | discord                                            | text and voice app |
 | github-desktop                                     | github desktop |
 
