@@ -128,7 +128,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- // programs
     , ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)  --open terminal
-    , ((modm,               xK_Print ), spawn "flameshot gui")         --equivelent to prntscr
+    , ((modm .|. shiftMask, xK_s     ), spawn "flameshot gui")         --equivelent to prntscr
     , ((modm,               xK_r     ), spawn "dmenu_run")             --run progravm
     , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")                 --
     
@@ -200,8 +200,9 @@ myScratchpads =
 myManageHook :: Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll
         [ title     =? "alacritty"      --> doShift "<action=xdotool key super+1>\xf120</action>" --ter
-        , className =? "Subl"           --> doShift "<action=xdotool key super+2>\xf718</action>" --txt
+        , className =? "Subl"           --> doShift "<action=xdotool key super+2>\xf718</action>" --doc
         , className =? "libreoffice-startcenter" --> doShift "<action=xdotool key super+2>\xf718</action>"
+        , className =? "calibre"        --> doShift "<action=xdotool key super+2>\xf718</action>"
         , className =? "Chromium"       --> doShift "<action=xdotool key super+3>\xe743</action>" --www
         , className =? "Audacity"       --> doShift "<action=xdotool key super+4>\xf121</action>" --dev
         , className =? "GitHub Desktop" --> doShift "<action=xdotool key super+4>\xf121</action>" --
