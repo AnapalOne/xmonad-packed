@@ -19,6 +19,7 @@ import XMonad.Layout.Grid
 import XMonad.Layout.Spiral
 --import XMonad.Layout.Magnifier
 import XMonad.Layout.ThreeColumns
+import XMonad.Layout.Spacing
 
 import XMonad.ManageHook
 import XMonad.Hooks.ManageDocks
@@ -98,7 +99,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_Tab   ), windows W.focusDown)                --rotate focus between windows
     , ((modm,               xK_m     ), windows W.focusMaster )             --focus to master window
     , ((modm,               xK_Return), windows W.swapMaster  )             --swap focus master and window
-    , ((modm .|. shiftMask, xK_Right ), windows W.swapDown  )               --swap focused window to next window
+    , ((modm .|. controlMask, xK_Right ), windows W.swapDown  )               --swap focused window to next window
     , ((modm .|. shiftMask, xK_Left  ), windows W.swapUp    )               --swap focused window to prev window
     , ((modm,               xK_comma ), sendMessage Shrink)                 --shrink master window
     , ((modm,               xK_period), sendMessage Expand)                 --expand master window
@@ -129,8 +130,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- // programs
     , ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)  --open terminal
     , ((modm .|. shiftMask, xK_s     ), spawn "flameshot gui")         --equivelent to prntscr
-    , ((modm,               xK_r     ), spawn "dmenu_run")             --run progravm
+    , ((modm,               xK_r     ), spawn "dmenu_run")             --run program
     , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")                 --
+    , ((modm .|. shiftMask, xK_v     ), spawn "kmix")   
     
     -- // scratchpad
     , ((modm .|. controlMask, xK_Return), namedScratchpadAction myScratchpads "ScrP_alacritty")
@@ -153,8 +155,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 -- Layouts
 ---------------------------------------------------------
 
-myLayout = avoidStruts $ smartBorders
-        (noBorders Full ||| tiled ||| Mirror tiled ||| threecol ||| Mirror threecol ||| Grid ||| spiral (6/7))
+myLayout = avoidStruts -- $ smartBorders
+        (noBorders Full ||| spacingWithEdge 7 (Full ||| tiled ||| Mirror tiled ||| threecol ||| Mirror threecol ||| Grid ||| spiral (6/7)))
   where
      tiled = Tall nmaster delta ratio
      nmaster = 1
@@ -213,6 +215,8 @@ myManageHook = composeAll
         , className =? "Mirage"         --> doShift "<action=xdotool key super+6>\xf03e</action>" --
         , className =? "discord"        --> doShift "<action=xdotool key super+7>\xf1d7</action>" --chat
         , className =? "krita"          --> doShift "<action=xdotool key super+9>\xf1fc</action>" --art
+        , className =? "Nemo"           --> doFloat
+        , className =? "kmix"           --> doFloat
         , title     =? "sxiv"           --> doFloat
         ]
 
@@ -248,7 +252,7 @@ main = do
         , keys               = myKeys
         -- , mouseBindings	     = myMouseBinds
 
-        , layoutHook         = myLayout
+        , layoutHook         =  myLayout
         , manageHook         = myManageHook <+> namedScratchpadManageHook myScratchpads
         , handleEventHook    = spotifyWindowNameFix <+> myEventHook
         , logHook            = dynamicLogWithPP . namedScratchpadFilterOutWorkspacePP $ def
