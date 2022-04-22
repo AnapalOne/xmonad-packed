@@ -6,12 +6,9 @@
 > **Note:** `xmonad.hs` will have configurations for packages not included in this setup. Generally these will not cause problems or decrease the performance of xmonad, but if the extra lines of code bother you, feel free to remove them if you like.
 
 ## Requirements
-### xmonad
-```
-sudo pacman -S xmonad xmonad-contrib
-```
-- I recommend using [xinit](https://wiki.archlinux.org/title/Xinit) to automatically start xmonad *or* to use a [display manager](https://wiki.archlinux.org/title/Display_manager).
-- Read the wiki for more details: https://wiki.archlinux.org/title/Xmonad
+### Display manager / xinit
+- [xinit](https://wiki.archlinux.org/title/Xinit) to automatically start xmonad *or* use a [display manager](https://wiki.archlinux.org/title/Display_manager).
+- Read the wiki for more details: https://wiki.archlinux.org/title/xmonad#Starting
 
 ### git
 ``` 
