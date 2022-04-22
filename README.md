@@ -27,7 +27,7 @@ makepkg -si
 ## Installation
 #### Download xmonad repo
 ``` 
-git clone https://github.com/AnapalOne/xmonad-packed && cd xmonad
+git clone https://github.com/AnapalOne/xmonad-packed && cd xmonad-packed
 ``` 
 #### Give permission to execute script that automatically installs packages and configures xmonad
 ```
