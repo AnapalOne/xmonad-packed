@@ -27,7 +27,7 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicProperty
---import XMonad.Hooks.ScreenCorners --have to configure myappgrid, mygridconfig, mycolorizer
+import XMonad.Hooks.ManageHelpers (doCenterFloat)
 
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
@@ -218,6 +218,7 @@ myManageHook = composeAll
         , className =? "Nemo"           --> doFloat
         , className =? "kmix"           --> doFloat
         , title     =? "sxiv"           --> doFloat
+        , title     =? "welcome"        --> doCenterFloat
         ]
 
 spotifyWindowNameFix = dynamicPropertyChange "WM_NAME" (title =? "Spotify" --> doShift "<action=xdotool key super+8>\xf886</action>") --mus
@@ -230,7 +231,7 @@ myStartupHook = do
         spawnOnce "nitrogen --restore &"
         spawnOnce "picom &"
         spawnOnce "~/.config/xmonad/scripts/startup_screen.sh &"
-        spawnOnce "xsetroot -cursor_name left_ptr"
+        spawnOnce "xsetroot -cursor_name left_ptr &"
         spawnOnce "libinput-gestures &"
 
 
@@ -252,7 +253,7 @@ main = do
         , keys               = myKeys
         -- , mouseBindings	     = myMouseBinds
 
-        , layoutHook         =  myLayout
+        , layoutHook         = myLayout
         , manageHook         = myManageHook <+> namedScratchpadManageHook myScratchpads
         , handleEventHook    = spotifyWindowNameFix <+> myEventHook
         , logHook            = dynamicLogWithPP . namedScratchpadFilterOutWorkspacePP $ def
