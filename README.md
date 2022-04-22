@@ -86,4 +86,5 @@ reboot
 - Sublime Text may not install properly, so be sure to reinstall it after booting into xmonad.
 
 ### picom not working
+- Try disabling vsync by changing the setting in '~/.config/picom/picom.conf'.
 - This may be a result of one of your drivers not working, be sure to check them to see if there are any errors.
