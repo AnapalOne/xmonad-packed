@@ -87,5 +87,5 @@ reboot
 ### picom not working
 - Try disabling vsync by changing the setting in `~/.config/picom/picom.conf`.
 - An error may occur as a result of your graphical drivers not working/compatible with picom, so try installing [Intel](https://wiki.archlinux.org/title/intel_graphics), [NVIDIA](https://wiki.archlinux.org/title/NVIDIA), or [other](https://wiki.archlinux.org/title/Hybrid_graphics) drivers depending on your GPU. 
-- picom **will** not work with VirtualBox, causing a sort of [HOM effect](https://doomwiki.org/wiki/Hall_of_mirrors_effect). To fix this, open the terminal with `Super + Shift + Enter` and type `killall picom` (note that you won't see any activity, so you might have do it blindly). As a result, there will be no compositor running but xmonad can be used without it.
+- picom will **not** work with VirtualBox, causing a sort of [HOM effect](https://doomwiki.org/wiki/Hall_of_mirrors_effect). To fix this, open the terminal with `Super + Shift + Enter` and type `killall picom` (note that you won't see any activity, so you might have do it blindly). As a result, there will be no compositor running but xmonad can be used without it.
    - Currently working on a fix, stay tuned for updates.
