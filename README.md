@@ -80,7 +80,6 @@ reboot
 | github-desktop                                     | github desktop |
 
 ## Troubleshooting
-#### After installation, some packages may not work. Here are some that I've found that might help you.
 
 ### Some programs not found
 - Packages may not install properly, so be sure to check and reinstall it after booting into xmonad.
