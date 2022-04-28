@@ -1,8 +1,8 @@
-.xmonad/
+xmobar
+build-x86_64-linux
+xmonad-x86_64-linux
 xmonad.errors
 xmonad.hi
 xmonad.hs.backup
-xmobar
-xmonad-x86_64-linux
+xmonad.hs.original
 xmonad.o
-build-x86_64-linux
