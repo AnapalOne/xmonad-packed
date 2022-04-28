@@ -19,6 +19,7 @@ import XMonad.Layout.Grid
 import XMonad.Layout.Spiral
 --import XMonad.Layout.Magnifier
 import XMonad.Layout.ThreeColumns
+import XMonad.Layout.Spacing
 
 import XMonad.ManageHook
 import XMonad.Hooks.ManageDocks
@@ -26,7 +27,7 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicProperty
---import XMonad.Hooks.ScreenCorners --have to configure myappgrid, mygridconfig, mycolorizer
+import XMonad.Hooks.ManageHelpers (doCenterFloat)
 
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
@@ -72,8 +73,8 @@ xmobarEscape = concatMap doubleLts
 
 myWorkspaces :: [String]
 myWorkspaces = clickable . (map xmobarEscape) 
-          -- $ ["ter","doc","www","dev","vid","img","chat","mus","art"]
-           $ ["\xf120", "\xf718", "\xe743", "\xf121", "\xf008", "\xf03e", "\xf1d7", "\xf886", "\xf1fc" ]
+            -- 2$ ["ter","doc","www","dev","vid","img","chat","mus","art"]
+            $ ["\xf120", "\xf718", "\xe743", "\xf121", "\xf008", "\xf03e", "\xf1d7", "\xf886", "\xf1fc"]
     where
           clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
                         (i,ws) <- zip [1..9] l,
@@ -98,7 +99,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_Tab   ), windows W.focusDown)                --rotate focus between windows
     , ((modm,               xK_m     ), windows W.focusMaster )             --focus to master window
     , ((modm,               xK_Return), windows W.swapMaster  )             --swap focus master and window
-    , ((modm .|. shiftMask, xK_Right ), windows W.swapDown  )               --swap focused window to next window
+    , ((modm .|. controlMask, xK_Right ), windows W.swapDown  )               --swap focused window to next window
     , ((modm .|. shiftMask, xK_Left  ), windows W.swapUp    )               --swap focused window to prev window
     , ((modm,               xK_comma ), sendMessage Shrink)                 --shrink master window
     , ((modm,               xK_period), sendMessage Expand)                 --expand master window
@@ -109,10 +110,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_Down  ), withFocused (keysMoveWindow (0,10)))            --
     , ((modm,               xK_Left  ), withFocused (keysMoveWindow (-10,0)))           --
     , ((modm,               xK_Right ), withFocused (keysMoveWindow (10,0)))            --
-    , ((modm .|. controlMask, xK_Up    ), withFocused (keysResizeWindow (0,-10) (0,0))) --resize floating window
-    , ((modm .|. controlMask, xK_Down  ), withFocused (keysResizeWindow (0,10) (0,0)))  --
-    , ((modm .|. controlMask, xK_Left  ), withFocused (keysResizeWindow (-10,0) (0,0))) --
-    , ((modm .|. controlMask, xK_Right ), withFocused (keysResizeWindow (10,0) (0,0)))  --
+    , ((modm .|. shiftMask, xK_Up    ), withFocused (keysResizeWindow (0,-10) (0,0))) --resize floating window
+    , ((modm .|. shiftMask, xK_Down  ), withFocused (keysResizeWindow (0,10) (0,0)))  --
+    , ((modm .|. shiftMask, xK_Left  ), withFocused (keysResizeWindow (-10,0) (0,0))) --
+    , ((modm .|. shiftMask, xK_Right ), withFocused (keysResizeWindow (10,0) (0,0)))  --
 
     -- //system commands
     , ((modm,               xK_b     ), sendMessage ToggleStruts)                      --toggle xmobar to front of screen
@@ -128,15 +129,18 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- // programs
     , ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)  --open terminal
-    , ((modm,               xK_Print ), spawn "flameshot gui")         --equivelent to prntscr
-    , ((modm,               xK_r     ), spawn "dmenu_run")             --run progravm
+    , ((modm .|. shiftMask, xK_s     ), spawn "flameshot gui")         --equivelent to prntscr
+    , ((modm,               xK_r     ), spawn "dmenu_run")             --run program
     , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")                 --
+    , ((modm .|. shiftMask, xK_v     ), spawn "kmix")
     
     -- // scratchpad
     , ((modm .|. controlMask, xK_Return), namedScratchpadAction myScratchpads "ScrP_alacritty")
     , ((modm,                 xK_grave ), namedScratchpadAction myScratchpads "ScrP_htop")
     , ((modm .|. shiftMask,   xK_grave ), namedScratchpadAction myScratchpads "ScrP_ncdu")
     , ((modm,                 xK_v     ), namedScratchpadAction myScratchpads "ScrP_vim")
+    , ((modm,                 xK_m     ), namedScratchpadAction myScratchpads "ScrP_cmus")
+    , ((modm .|. shiftMask,   xK_m     ), namedScratchpadAction myScratchpads "ScrP_spt")
     ]
     ++
     -- mod-[1..9], Switch to workspace N
@@ -151,8 +155,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 -- Layouts
 ---------------------------------------------------------
 
-myLayout = avoidStruts $ smartBorders
-        (noBorders Full ||| tiled ||| Mirror tiled ||| threecol ||| Mirror threecol ||| Grid ||| spiral (6/7))
+myLayout = avoidStruts -- $ smartBorders
+        (smartBorders Full ||| spacingWithEdge 7 (Full ||| tiled ||| Mirror tiled ||| threecol ||| Mirror threecol ||| Grid ||| spiral (6/7)))
   where
      tiled = Tall nmaster delta ratio
      nmaster = 1
@@ -175,6 +179,8 @@ myScratchpads =
          , NS "ScrP_vim" "alacritty -t vim -e vim" (title =? "vim") floatScratchpad
          , NS "ScrP_ncdu" "alacritty -t ncdu -e bash -c 'ncdu /'" (title =? "ncdu") floatScratchpad
          , NS "help" "~/.config/xmonad/scripts/help.sh" (title =? "list of programs") floatScratchpad
+         , NS "ScrP_cmus" "alacritty -t cmus -e cmus" (title =? "cmus") floatScratchpad
+         , NS "ScrP_spt" "alacritty -t spotify-tui -e spt" (title =? "spotify-tui") floatScratchpad
          ]
     where 
        floatScratchpad = customFloating $ W.RationalRect l t w h
@@ -196,16 +202,23 @@ myScratchpads =
 myManageHook :: Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll
         [ title     =? "alacritty"      --> doShift "<action=xdotool key super+1>\xf120</action>" --ter
-        , className =? "Subl"           --> doShift "<action=xdotool key super+2>\xf718</action>" --txt
+        , className =? "Subl"           --> doShift "<action=xdotool key super+2>\xf718</action>" --doc
         , className =? "libreoffice-startcenter" --> doShift "<action=xdotool key super+2>\xf718</action>"
+        , className =? "calibre"        --> doShift "<action=xdotool key super+2>\xf718</action>"
         , className =? "Chromium"       --> doShift "<action=xdotool key super+3>\xe743</action>" --www
         , className =? "Audacity"       --> doShift "<action=xdotool key super+4>\xf121</action>" --dev
-        , className =? "GitHub Desktop" --> doShift "<action=xdotool key super+4>\xf121</action>"
+        , className =? "GitHub Desktop" --> doShift "<action=xdotool key super+4>\xf121</action>" --
+        , className =? "Code"           --> doShift "<action=xdotool key super+4>\xf121</action>" --
         , className =? "vlc"            --> doShift "<action=xdotool key super+5>\xf008</action>" --vid
+        , className =? "mpv"            --> doShift "<action=xdotool key super+5>\xf008</action>" --
         , className =? "Gimp"           --> doShift "<action=xdotool key super+6>\xf03e</action>" --img
-        , className =? "Mirage"         --> doShift "<action=xdotool key super+6>\xf03e</action>" 
+        , className =? "Mirage"         --> doShift "<action=xdotool key super+6>\xf03e</action>" --
         , className =? "discord"        --> doShift "<action=xdotool key super+7>\xf1d7</action>" --chat
         , className =? "krita"          --> doShift "<action=xdotool key super+9>\xf1fc</action>" --art
+        , className =? "Nemo"           --> doFloat
+        , className =? "kmix"           --> doFloat
+        , title     =? "sxiv"           --> doFloat
+        , title     =? "welcome"        --> doCenterFloat
         ]
 
 spotifyWindowNameFix = dynamicPropertyChange "WM_NAME" (title =? "Spotify" --> doShift "<action=xdotool key super+8>\xf886</action>") --mus
@@ -218,7 +231,7 @@ myStartupHook = do
         spawnOnce "nitrogen --restore &"
         spawnOnce "picom &"
         spawnOnce "~/.config/xmonad/scripts/startup_screen.sh &"
-        spawnOnce "xsetroot -cursor_name left_ptr"
+        spawnOnce "xsetroot -cursor_name left_ptr &"
         spawnOnce "libinput-gestures &"
 
 
@@ -229,7 +242,7 @@ myStartupHook = do
 
 main = do
    xmproc <- spawnPipe "xmobar -x 0 ~/.xmobarrc/xmobar"
-   xmonad $ docks desktopConfig
+   xmonad $ docks $ ewmh desktopConfig
         { terminal           = myTerminal
         , modMask            = myModMask
         , workspaces         = myWorkspaces
