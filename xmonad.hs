@@ -121,7 +121,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")  --recompiles xmonad
     , ((modm .|. shiftMask, xK_slash ), namedScratchpadAction myScratchpads "help")    -- show list of programs
     , ((modm .|. shiftMask, xK_F1    ), spawn "systemctl hibernate")
-    , ((0,     xF86XK_MonBrightnessUp), spawn "lux -a 10%")
+    , ((0,     xF86XK_MonBrightnessUp), spawn "lux -a 5%")
     , ((0,   xF86XK_MonBrightnessDown), spawn "lux -s 5%")
     , ((0,    xF86XK_AudioRaiseVolume), spawn "pamixer -i 5")
     , ((0,    xF86XK_AudioLowerVolume), spawn "pamixer -d 5")
@@ -132,7 +132,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_s     ), spawn "flameshot gui")         --equivelent to prntscr
     , ((modm,               xK_r     ), spawn "dmenu_run")             --run program
     , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")                 --
-    , ((modm .|. shiftMask, xK_v     ), spawn "kmix")
+    , ((modm .|. shiftMask, xK_v     ), spawn "alacritty -t alsamixer -e alsamixer")
     
     -- // scratchpad
     , ((modm .|. controlMask, xK_Return), namedScratchpadAction myScratchpads "ScrP_alacritty")
@@ -205,7 +205,7 @@ myManageHook = composeAll
         , className =? "Subl"           --> doShift "<action=xdotool key super+2>\xf718</action>" --doc
         , className =? "libreoffice-startcenter" --> doShift "<action=xdotool key super+2>\xf718</action>"
         , className =? "calibre"        --> doShift "<action=xdotool key super+2>\xf718</action>"
-        , className =? "Chromium"       --> doShift "<action=xdotool key super+3>\xe743</action>" --www
+        , className =? "firefox"        --> doShift "<action=xdotool key super+3>\xe743</action>" --www
         , className =? "Audacity"       --> doShift "<action=xdotool key super+4>\xf121</action>" --dev
         , className =? "GitHub Desktop" --> doShift "<action=xdotool key super+4>\xf121</action>" --
         , className =? "Code"           --> doShift "<action=xdotool key super+4>\xf121</action>" --
@@ -217,6 +217,7 @@ myManageHook = composeAll
         , className =? "krita"          --> doShift "<action=xdotool key super+9>\xf1fc</action>" --art
         , className =? "Nemo"           --> doFloat
         , className =? "kmix"           --> doFloat
+        , title     =? "alsamixer"      --> doFloat
         , title     =? "sxiv"           --> doFloat
         , title     =? "welcome"        --> doCenterFloat
         ]
