@@ -70,7 +70,7 @@ reboot
 | flameshot                                          | capture screen |
 | tlp, tlpui                                         | battery manager |
 | nitrogen                                           | wallpaper |
-| chromium                                           | browser |
+| firefox                                            | browser |
 | krita                                              | drawing software |
 | gimp                                               | image editor/drawing software |
 | mpv, vlc                                           | video software |
