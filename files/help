@@ -1,4 +1,4 @@
--------------------------------------------------
+l-------------------------------------------------
 -- List of programs:
 -------------------------------------------------
 
@@ -18,7 +18,7 @@
 
 // programs (WinKey + R to run):
    nitrogen       -- wallpaper
-   chromium       -- browser
+   firefox        -- browser
    krita          -- drawing software
    gimp           -- image editor/drawing software
    mpv, vlc       -- video software
