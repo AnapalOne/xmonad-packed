@@ -7,8 +7,8 @@
 
 ## Requirements
 ### Display manager / xinit
-- [xinit](https://wiki.archlinux.org/title/Xinit) to automatically start xmonad *or* use a [display manager](https://wiki.archlinux.org/title/Display_manager).
-- Read the wiki for more details: https://wiki.archlinux.org/title/xmonad#Starting
+- use [xinit](https://wiki.archlinux.org/title/Xinit) to automatically start xmonad or a [display manager](https://wiki.archlinux.org/title/Display_manager) to cycle between window managers.
+   - Read the wiki for more details: https://wiki.archlinux.org/title/xmonad#Starting
 
 ### git
 ``` 
@@ -25,25 +25,26 @@ makepkg -si
 ``` 
 
 ## Installation
-#### Download xmonad repo
+#### Download
 ``` 
 git clone https://github.com/AnapalOne/xmonad-packed && cd xmonad-packed
 ``` 
-#### Give permission to execute script that automatically installs packages and configures xmonad
+#### a) Applying a specific config file to your existing xmonad/program
+- If you want to only apply the xmonad config to your xmonad, simply copy `xmonad.hs` to `~/.xmonad/`
+- If you want to only apply xmobar, copy `xmobar` to `~/.xmobarrc/`
+   - In this case, you will need to add some configs to `xmonad.hs logHook` in order for this xmobar to work. [Details found here](https://hackage.haskell.org/package/xmonad-contrib-0.17.0/docs/XMonad-Hooks-DynamicLog.html).
+- If you want to apply my configs to your programs, copy your selected config file (see `files` and `configs`) and apply it to your respective directory.
+
+#### b) Installing this config and packages from base Arch Linux/existing window manager
 ```
 chmod +x ./setup.sh
 ```
-#### Run script
 ```
 ./setup.sh
 ```
 ```
 reboot
 ```
-#### Specific configs
-- If you want to only apply the xmonad config to your xmonad, simply copy `xmonad.hs` to `~/.xmonad/`
-- If you want to only apply xmobar, copy `xmobar` to `~/.xmobarrc/`
-   - In this case, you will need to add some configs to `xmonad.hs logHook` in order for this xmobar to work. [Details found here.](https://hackage.haskell.org/package/xmonad-contrib-0.17.0/docs/XMonad-Hooks-DynamicLog.html)
  ##### And you're done! You may edit any of these configs to your liking.
 
 ## List of packages
