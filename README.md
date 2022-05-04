@@ -40,10 +40,10 @@ chmod +x ./setup.sh
 ```
 reboot
 ```
-
+#### Specific configs
 - If you want to only apply the xmonad config to your xmonad, simply copy `xmonad.hs` to `~/.xmonad/`
 - If you want to only apply xmobar, copy `xmobar` to `~/.xmobarrc/`
-   - You will need to add some configs in `xmonad.hs logHook` in order for this xmobar to work. [Details found here.](https://hackage.haskell.org/package/xmonad-contrib-0.17.0/docs/XMonad-Hooks-DynamicLog.html)
+   - In this case, you will need to add some configs to `xmonad.hs logHook` in order for this xmobar to work. [Details found here.](https://hackage.haskell.org/package/xmonad-contrib-0.17.0/docs/XMonad-Hooks-DynamicLog.html)
  ##### And you're done! You may edit any of these configs to your liking.
 
 ## List of packages
