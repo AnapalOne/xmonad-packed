@@ -132,7 +132,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_s     ), spawn "flameshot gui")         --equivelent to prntscr
     , ((modm,               xK_r     ), spawn "dmenu_run")             --run program
     , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")                 --
-    , ((modm .|. shiftMask, xK_v     ), spawn "alacritty -t alsamixer -e alsamixer")
+    , ((modm .|. shiftMask, xK_v     ), spawn "alacritty -t alsamixer -e alsamixer")  --sound system
     
     -- // scratchpad
     , ((modm .|. controlMask, xK_Return), namedScratchpadAction myScratchpads "ScrP_alacritty")
@@ -201,22 +201,32 @@ myScratchpads =
         -- > doShift to open only in a specific workspace
 myManageHook :: Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll
-        [ title     =? "alacritty"      --> doShift "<action=xdotool key super+1>\xf120</action>" --ter
-        , className =? "Subl"           --> doShift "<action=xdotool key super+2>\xf718</action>" --doc
+        -- ter 
+        [ title     =? "alacritty"      --> doShift "<action=xdotool key super+1>\xf120</action>"
+        -- doc
+        , className =? "Subl"           --> doShift "<action=xdotool key super+2>\xf718</action>" 
         , className =? "libreoffice-startcenter" --> doShift "<action=xdotool key super+2>\xf718</action>"
-        , className =? "calibre"        --> doShift "<action=xdotool key super+2>\xf718</action>"
-        , className =? "firefox"        --> doShift "<action=xdotool key super+3>\xe743</action>" --www
-        , className =? "Audacity"       --> doShift "<action=xdotool key super+4>\xf121</action>" --dev
-        , className =? "GitHub Desktop" --> doShift "<action=xdotool key super+4>\xf121</action>" --
-        , className =? "Code"           --> doShift "<action=xdotool key super+4>\xf121</action>" --
-        , className =? "vlc"            --> doShift "<action=xdotool key super+5>\xf008</action>" --vid
-        , className =? "mpv"            --> doShift "<action=xdotool key super+5>\xf008</action>" --
-        , className =? "Gimp"           --> doShift "<action=xdotool key super+6>\xf03e</action>" --img
-        , className =? "Mirage"         --> doShift "<action=xdotool key super+6>\xf03e</action>" --
-        , className =? "discord"        --> doShift "<action=xdotool key super+7>\xf1d7</action>" --chat
-        , className =? "krita"          --> doShift "<action=xdotool key super+9>\xf1fc</action>" --art
+        , className =? "calibre"        --> doShift "<action=xdotool key super+2>\xf718</action>" 
+        --www
+        , className =? "firefox"        --> doShift "<action=xdotool key super+3>\xe743</action>" 
+        --dev
+        , className =? "Audacity"       --> doShift "<action=xdotool key super+4>\xf121</action>" 
+        , className =? "GitHub Desktop" --> doShift "<action=xdotool key super+4>\xf121</action>" 
+        , className =? "Code"           --> doShift "<action=xdotool key super+4>\xf121</action>" 
+        --vid
+        , className =? "vlc"            --> doShift "<action=xdotool key super+5>\xf008</action>" 
+        , className =? "mpv"            --> doShift "<action=xdotool key super+5>\xf008</action>" 
+        , className =? "kdenlive"       --> doShift "<action=xdotool key super+5>\xf008</action>" 
+        --img
+        , className =? "Gimp"           --> doShift "<action=xdotool key super+6>\xf03e</action>" 
+        , className =? "Mirage"         --> doShift "<action=xdotool key super+6>\xf03e</action>" 
+        --chat
+        , className =? "discord"        --> doShift "<action=xdotool key super+7>\xf1d7</action>" 
+        --art
+        , className =? "krita"          --> doShift "<action=xdotool key super+9>\xf1fc</action>" 
         , className =? "Nemo"           --> doFloat
         , className =? "kmix"           --> doFloat
+        , className =? "gnome-calculator" --> doFloat
         , title     =? "alsamixer"      --> doFloat
         , title     =? "sxiv"           --> doFloat
         , title     =? "welcome"        --> doCenterFloat
