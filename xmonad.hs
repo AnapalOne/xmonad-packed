@@ -46,24 +46,14 @@ myTerminal              = "alacritty"
 myModMask               = mod4Mask -- win key
 myBorderWidth           = 3
 
-
 myNormalBorderColor = "#849DAB"
 myFocusedBorderColor = "#24788F"
 
-windowCount :: X (Maybe String)
-windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
-
-toggleFloat :: Window -> X ()
-toggleFloat w = windows
-   ( \s -> if M.member w (W.floating s)
-           then W.sink w s
-           else (W.float w (W.RationalRect (0.01) (0.04) (0.55) (0.55)) s) )
-
-xmobarEscape :: String -> String
-xmobarEscape = concatMap doubleLts
-   where
-           doubleLts '<' = "<<"
-           doubleLts x   = [x]
+    -- grid applications (WinKey + g)
+myGridSpawn = [ "subl","firefox","github-desktop",
+                "libreoffice","nemo","deepin-calculator",
+                "discord","spotify","gimp","krita","obs"
+        ]
 
 
 
@@ -144,7 +134,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- // grid
     , ((modm,                 xK_Tab   ), goToSelected def)
-    , ((modm,                 xK_g     ), spawnSelected def ["subl","firefox","github-desktop","libreoffice","nemo","deepin-calculator"])
+    , ((modm,                 xK_g     ), spawnSelected def myGridSpawn)
     ]
     ++
     -- mod-[1..9], Switch to workspace N
@@ -285,3 +275,24 @@ main = do
 
         , startupHook        = myStartupHook
      }
+
+
+
+---------------------------------------------------------
+-- Functions
+---------------------------------------------------------
+
+windowCount :: X (Maybe String)
+windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
+
+toggleFloat :: Window -> X ()
+toggleFloat w = windows
+   ( \s -> if M.member w (W.floating s)
+           then W.sink w s
+           else (W.float w (W.RationalRect (0.01) (0.04) (0.55) (0.55)) s) )
+
+xmobarEscape :: String -> String
+xmobarEscape = concatMap doubleLts
+   where
+           doubleLts '<' = "<<"
+           doubleLts x   = [x]
