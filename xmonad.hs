@@ -89,10 +89,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((mod1Mask,           xK_Tab   ), windows W.focusDown)                --rotate focus between windows
     , ((modm,               xK_m     ), windows W.focusMaster )             --focus to master window
     , ((modm,               xK_Return), windows W.swapMaster  )             --swap focus master and window
-    , ((modm .|. controlMask, xK_Right ), windows W.swapDown  )               --swap focused window to next window
-    , ((modm .|. shiftMask, xK_Left  ), windows W.swapUp    )               --swap focused window to prev window
-    , ((modm,               xK_comma ), sendMessage Shrink)                 --shrink master window
-    , ((modm,               xK_period), sendMessage Expand)                 --expand master window
+    , ((modm,               xK_comma ), windows W.swapUp      )             --shrink master window
+    , ((modm,               xK_period), windows W.swapDown    )             --expand master window
 
     -- // floating windows
     , ((modm .|. shiftMask, xK_Tab   ), withFocused toggleFloat)                        --toggle between tiled and floating window
