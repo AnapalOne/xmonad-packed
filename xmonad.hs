@@ -91,12 +91,12 @@ myWorkspaces = clickable . (map xmobarEscape)
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
-    -- //windows
+    -- // windows
     [ ((modm,            xK_BackSpace), kill)                               --close focused window
     , ((modm,               xK_space ), sendMessage NextLayout)             --rotate layout
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf) --reset layout
     , ((modm,               xK_n     ), refresh)                            --resize window to correct size
-    , ((modm,               xK_Tab   ), windows W.focusDown)                --rotate focus between windows
+    , ((mod1Mask,           xK_Tab   ), windows W.focusDown)                --rotate focus between windows
     , ((modm,               xK_m     ), windows W.focusMaster )             --focus to master window
     , ((modm,               xK_Return), windows W.swapMaster  )             --swap focus master and window
     , ((modm .|. controlMask, xK_Right ), windows W.swapDown  )               --swap focused window to next window
@@ -104,7 +104,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_comma ), sendMessage Shrink)                 --shrink master window
     , ((modm,               xK_period), sendMessage Expand)                 --expand master window
 
-    -- //floating windows
+    -- // floating windows
     , ((modm .|. shiftMask, xK_Tab   ), withFocused toggleFloat)                        --toggle between tiled and floating window
     , ((modm,               xK_Up    ), withFocused (keysMoveWindow (0,-10)))           --move floating window
     , ((modm,               xK_Down  ), withFocused (keysMoveWindow (0,10)))            --
@@ -115,7 +115,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_Left  ), withFocused (keysResizeWindow (-10,0) (0,0))) --
     , ((modm .|. shiftMask, xK_Right ), withFocused (keysResizeWindow (10,0) (0,0)))  --
 
-    -- //system commands
+    -- // system commands
     , ((modm,               xK_b     ), sendMessage ToggleStruts)                      --toggle xmobar to front of screen
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))                     --logout xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")  --recompiles xmonad
@@ -141,6 +141,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,                 xK_v     ), namedScratchpadAction myScratchpads "ScrP_vim")
     , ((modm,                 xK_m     ), namedScratchpadAction myScratchpads "ScrP_cmus")
     , ((modm .|. shiftMask,   xK_m     ), namedScratchpadAction myScratchpads "ScrP_spt")
+
+    -- // grid
+    , ((modm,                 xK_Tab   ), goToSelected def)
+    , ((modm,                 xK_g     ), spawnSelected def ["subl","firefox","github-desktop","libreoffice","nemo","deepin-calculator"])
     ]
     ++
     -- mod-[1..9], Switch to workspace N
@@ -226,7 +230,6 @@ myManageHook = composeAll
         , className =? "krita"          --> doShift "<action=xdotool key super+9>\xf1fc</action>" 
         , className =? "Nemo"           --> doFloat
         , className =? "kmix"           --> doFloat
-        , className =? "gnome-calculator" --> doFloat
         , title     =? "alsamixer"      --> doFloat
         , title     =? "sxiv"           --> doFloat
         , title     =? "welcome"        --> doCenterFloat
