@@ -84,10 +84,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- // windows
     [ ((modm,            xK_BackSpace), kill)                               --close focused window
     , ((modm,               xK_space ), sendMessage NextLayout)             --rotate layout
-    , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf) --reset layout
-    , ((modm,               xK_n     ), refresh)                            --resize window to correct size
+    , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf) --reset layout order
     , ((mod1Mask,           xK_Tab   ), windows W.focusDown)                --rotate focus between windows
-    , ((modm,               xK_m     ), windows W.focusMaster )             --focus to master window
     , ((modm,               xK_Return), windows W.swapMaster  )             --swap focus master and window
     , ((modm,               xK_comma ), windows W.swapUp      )             --shrink master window
     , ((modm,               xK_period), windows W.swapDown    )             --expand master window
@@ -135,8 +133,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,                 xK_g     ), spawnSelected def myGridSpawn)
     ]
     ++
-    -- mod-[1..9], Switch to workspace N
-    -- mod-shift-[1..9], Move client to workspace N
+    -- mod-[1..9], Switch to workspace 
+    -- mod-shift-[1..9], Move window to workspace
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
@@ -147,7 +145,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 -- Layouts
 ---------------------------------------------------------
 
-myLayout = avoidStruts -- $ smartBorders
+myLayout = avoidStruts
         (smartBorders Full ||| spacingWithEdge 7 (Full ||| tiled ||| Mirror tiled ||| threecol ||| Mirror threecol ||| Grid ||| spiral (6/7)))
   where
      tiled = Tall nmaster delta ratio
@@ -253,7 +251,6 @@ main = do
         , focusedBorderColor = myFocusedBorderColor
 
         , keys               = myKeys
-        -- , mouseBindings	     = myMouseBinds
 
         , layoutHook         = myLayout
         , manageHook         = myManageHook <+> namedScratchpadManageHook myScratchpads
