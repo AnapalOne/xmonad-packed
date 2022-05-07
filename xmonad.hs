@@ -49,11 +49,11 @@ myBorderWidth           = 3
 myNormalBorderColor = "#849DAB"
 myFocusedBorderColor = "#24788F"
 
-    -- grid applications (WinKey + g)
+    -- grid applications (mod + g)
 myGridSpawn = [ "subl","firefox","github-desktop",
                 "libreoffice","nemo","deepin-calculator",
-                "discord","spotify","gimp","krita","obs"
-        ]
+                "discord","spotify","gimp","krita","obs",
+                "chromium"]
 
 
 
@@ -74,7 +74,7 @@ myWorkspaces = clickable . (map xmobarEscape)
 
 ---------------------------------------------------------
 -- Key Binds
--- > modm = WinKey
+-- > modm = Windows Key
 --
 -- Do xev | sed -ne '/^KeyPress/,/^$/p' for key maps.
 ---------------------------------------------------------
@@ -96,10 +96,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_Down  ), withFocused (keysMoveWindow (0,10)))            --
     , ((modm,               xK_Left  ), withFocused (keysMoveWindow (-10,0)))           --
     , ((modm,               xK_Right ), withFocused (keysMoveWindow (10,0)))            --
-    , ((modm .|. shiftMask, xK_Up    ), withFocused (keysResizeWindow (0,-10) (0,0))) --resize floating window
-    , ((modm .|. shiftMask, xK_Down  ), withFocused (keysResizeWindow (0,10) (0,0)))  --
-    , ((modm .|. shiftMask, xK_Left  ), withFocused (keysResizeWindow (-10,0) (0,0))) --
-    , ((modm .|. shiftMask, xK_Right ), withFocused (keysResizeWindow (10,0) (0,0)))  --
+    , ((modm .|. shiftMask, xK_Up    ), withFocused (keysResizeWindow (0,-10) (0,0)))   --resize floating window
+    , ((modm .|. shiftMask, xK_Down  ), withFocused (keysResizeWindow (0,10) (0,0)))    --
+    , ((modm .|. shiftMask, xK_Left  ), withFocused (keysResizeWindow (-10,0) (0,0)))   --
+    , ((modm .|. shiftMask, xK_Right ), withFocused (keysResizeWindow (10,0) (0,0)))    --
 
     -- // system commands
     , ((modm,               xK_b     ), sendMessage ToggleStruts)                      --toggle xmobar to front of screen
@@ -133,8 +133,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,                 xK_g     ), spawnSelected def myGridSpawn)
     ]
     ++
-    -- mod-[1..9], Switch to workspace 
-    -- mod-shift-[1..9], Move window to workspace
+    -- mod-[1..9] = Switch to workspace 
+    -- mod-shift-[1..9] = Move window to workspace
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
@@ -199,6 +199,7 @@ myManageHook = composeAll
         , className =? "calibre"        --> doShift "<action=xdotool key super+2>\xf718</action>" 
         --www
         , className =? "firefox"        --> doShift "<action=xdotool key super+3>\xe743</action>" 
+        , className =? "Chromium"       --> doShift "<action=xdotool key super+3>\xe743</action>"
         --dev
         , className =? "Audacity"       --> doShift "<action=xdotool key super+4>\xf121</action>" 
         , className =? "GitHub Desktop" --> doShift "<action=xdotool key super+4>\xf121</action>" 
@@ -254,7 +255,7 @@ main = do
 
         , layoutHook         = myLayout
         , manageHook         = myManageHook <+> namedScratchpadManageHook myScratchpads
-        , handleEventHook    = spotifyWindowNameFix <+> myEventHook
+        , handleEventHook    = myEventHook
         , logHook            = dynamicLogWithPP . namedScratchpadFilterOutWorkspacePP $ def
                                    { ppOutput = hPutStrLn xmproc
                                    , ppCurrent = xmobarColor "#4381fb" "" . wrap "[" "]"
