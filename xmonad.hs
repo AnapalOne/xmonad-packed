@@ -130,7 +130,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- // grid
     , ((modm,                 xK_Tab   ), goToSelected def)
-    , ((modm,                 xK_g     ), spawnSelected def myGridSpawn)
+    , ((0,                    xK_Menu  ), spawnSelected def myGridSpawn)
     ]
     ++
     -- mod-[1..9] = Switch to workspace 
