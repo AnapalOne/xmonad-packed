@@ -1,28 +1,43 @@
 Config { 
 
-   -- appearance
+   -- // appearance
      font =         "xft:Symbols Nerd Font:size=10, Bitstream Vera Sans Mono:size=8:bold:antialias=true:hinting=true"
    , bgColor =      "black"
    , fgColor =      "white"
-   , position =     Top
-   , border =       BottomB
    , borderColor =  "#646464"
 
-   -- layout
+   -- options: Top, TopP, TopW, TopSize, Bottom, BottomP, BottomW, BottomSize or Static
+   --          examples:
+   --              Static { xpos = 14 , ypos = 10, width = 1330, height = 15 }
+   --              BottomW C 75
+   --              BottomP 120 0
+   , position = Top
+
+   -- options: TopB, TopBM, BottomB, BottomBM, FullB, FullBM or NoBorder 
+   --     TopB, BottomB, FullB take no arguments, and request drawing a border at the top, bottom or around xmobar's window, respectively.
+   --     TopBM, BottomBM, FullBM take an integer argument, which is the margin, in pixels, between the border of the window and the drawn border.
+   , border = BottomB
+
+
+   -- // layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
    , template = " %battery% | %UnsafeStdinReader%}{                      <fc=#909090>%cpu% / %coretemp%</fc> | <fc=#909090>%memory%</fc> | <fc=#909090>%dynnetwork%</fc> [ %uptime% | %date% ] "
 
-   -- general behavior
+
+   -- // general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
    , hideOnStart =      False   -- start with window unmapped (hidden)
    , allDesktops =      True    -- show on all desktops
    , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
    , pickBroadest =     False   -- choose widest display (multi-monitor)
    , persistent =       True    -- enable/disable hiding (True = disabled)
+
+
+   -- // layout template
    , commands = 
-       -- uptime monitor
-        [ Run Uptime   [ "--template", "<fc=#ABABAB><hours>h <minutes>m <seconds>s</fc>" ] 6
+          -- uptime monitor
+          [ Run Uptime   [ "--template", "<fc=#ABABAB><hours>h <minutes>m <seconds>s</fc>" ] 6
 
         -- weather monitor (add %RJTT% beteen uptime and date)
         --, Run Weather "RJTT" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
@@ -38,7 +53,7 @@ Config {
                              , "--low"      , "#1bc800"
                              , "--normal"   , "darkorange" --darkorange
                              , "--high"     , "darkred" --darkred
-                             ] 10
+                             ] 20
 
         -- cpu activity monitor
         , Run Cpu            [ "--template" , "<fc=#3cfb05><fn=1>\xf108</fn></fc> <total>%"
