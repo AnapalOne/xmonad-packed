@@ -231,7 +231,7 @@ myEventHook = fullscreenEventHook <+> spotifyWindowNameFix
 myStartupHook = do
         spawnOnce "nitrogen --restore &"
         spawnOnce "picom &"
-        spawnOnce "~/.config/xmonad/scripts/startup_screen.sh &"
+        spawnOnce "~/.config/xmonad/scripts/startup_screen.sh"
         spawnOnce "xsetroot -cursor_name left_ptr &"
         spawnOnce "libinput-gestures &"
 
