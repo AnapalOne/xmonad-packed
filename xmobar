@@ -2,7 +2,6 @@ Config {
 
    -- appearance
      font =         "xft:Symbols Nerd Font:size=10, Bitstream Vera Sans Mono:size=8:bold:antialias=true:hinting=true"
-   , additionalFonts = [ "xft:Symbols Nerd Font:size=10" ]
    , bgColor =      "black"
    , fgColor =      "white"
    , position =     Top
@@ -22,7 +21,7 @@ Config {
    , pickBroadest =     False   -- choose widest display (multi-monitor)
    , persistent =       True    -- enable/disable hiding (True = disabled)
    , commands = 
-  -- uptime monitor
+       -- uptime monitor
         [ Run Uptime   [ "--template", "<fc=#ABABAB><hours>h <minutes>m <seconds>s</fc>" ] 6
 
         -- weather monitor (add %RJTT% beteen uptime and date)
@@ -69,12 +68,15 @@ Config {
                              ] 60
 
         -- battery monitor (<timeleft> in discharging status for battery time left)
-        , Run Battery        [ "--template" , "<fn=1>\xf240</fn> <acstatus>"
+        , Run Battery        [ "--template" , "<leftbar> <acstatus>"
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "40"        -- units: %
                              , "--low"      , "darkred"
                              , "--normal"   , "darkorange"
                              , "--high"     , "#1bc800"
+                             , "-f", "\xf244\xf243\xf243\xf243\xf242\xf242\xf242\xf241\xf241\xf240" -- horizontal
+                             -- , "-f", "\xf579\xf57a\xf57b\xf57c\xf57d\xf57e\xf57f\xf580\xf581\xf578" -- vertical
+                             , "-W", "0"
 
                              , "--"
                                        -- discharging status
@@ -82,8 +84,8 @@ Config {
                                        -- AC "on" status
                                        , "-O" , "<fc=#dAA520>Charging..</fc>"
                                        -- charged status
-                                       , "-i" , "<fc=#006000>Charged!</fc>"
-                             ] 100
+                                       , "-i" , "<fc=#006000>Charged!</fc>"      
+                             ] 50
 
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
@@ -93,5 +95,9 @@ Config {
         --, Run Kbd            [ ("us(dvorak)" , "<fc=#00008B>DV</fc>")
         --                     , ("us"         , "<fc=#4682B4>KeyB: </fc", "<fc=#8B0000>US</fc>")
         --                     ]
+
+        -- volume (alias %default:Master%)
+        -- , Run Com "/home/anapal/Scripts/volume.sh" [] "volume" 10
+        -- , Run Volume "default" "Master" ["-t", "<volume>%"] 10
         ]
    }
