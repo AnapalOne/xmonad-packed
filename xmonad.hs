@@ -49,7 +49,7 @@ myBorderWidth           = 3
 myNormalBorderColor = "#849DAB"
 myFocusedBorderColor = "#24788F"
 
-    -- grid applications (mod + g)
+    -- grid applications (menu key)
 myGridSpawn = [ "subl","firefox","github-desktop",
                 "libreoffice","nemo","kdenlive",
                 "discord","spotify","gimp","krita","obs",
@@ -218,7 +218,7 @@ myManageHook = composeAll
         , className =? "Nemo"           --> doFloat
         , className =? "kmix"           --> doFloat
         , title     =? "alsamixer"      --> doFloat
-        , title     =? "sxiv"           --> doFloat
+        , className =? "Sxiv"           --> doFloat
         , title     =? "welcome"        --> doCenterFloat
         ]
 
