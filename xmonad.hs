@@ -51,9 +51,9 @@ myFocusedBorderColor = "#24788F"
 
     -- grid applications (mod + g)
 myGridSpawn = [ "subl","firefox","github-desktop",
-                "libreoffice","nemo","deepin-calculator",
+                "libreoffice","nemo","kdenlive",
                 "discord","spotify","gimp","krita","obs",
-                "chromium"]
+                "kmix","deepin-calculator"]
 
 
 
@@ -87,8 +87,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf) --reset layout order
     , ((mod1Mask,           xK_Tab   ), windows W.focusDown)                --rotate focus between windows
     , ((modm,               xK_Return), windows W.swapMaster  )             --swap focus master and window
-    , ((modm,               xK_comma ), windows W.swapUp      )             --shrink master window
-    , ((modm,               xK_period), windows W.swapDown    )             --expand master window
+    , ((modm,               xK_comma ), windows W.swapUp      )             --move tiled window
+    , ((modm,               xK_period), windows W.swapDown    )             --
 
     -- // floating windows
     , ((modm .|. shiftMask, xK_Tab   ), withFocused toggleFloat)                        --toggle between tiled and floating window
