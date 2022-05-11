@@ -31,7 +31,7 @@ git clone https://github.com/AnapalOne/xmonad-packed && cd xmonad-packed
 ``` 
 #### a) Applying a specific config file to your existing xmonad/program
 - If you want to only apply the xmonad config to your xmonad, simply copy `xmonad.hs` to `~/.xmonad/`
-- If you want to only apply xmobar, copy `xmobar` to `~/.xmobarrc/`
+- If you want to only apply xmobar, copy `xmobar` to `~/.xmobarrc`
    - In this case, you will need to add some configs to `xmonad.hs logHook` in order for this xmobar to work. [Details found here](https://hackage.haskell.org/package/xmonad-contrib-0.17.0/docs/XMonad-Hooks-DynamicLog.html).
 - If you want to apply my configs to your programs, copy your selected config file (see `files` and `configs`) and apply it to your respective directory.
 
