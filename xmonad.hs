@@ -32,6 +32,7 @@ import XMonad.Hooks.ManageHelpers (doCenterFloat)
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
 import XMonad.Util.NamedScratchpad
+import XMonad.Util.Cursor
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -45,8 +46,9 @@ import qualified Data.Map        as M
 myTerminal              = "alacritty"
 myModMask               = mod4Mask -- win key
 myBorderWidth           = 3
+myCursor                = xC_left_ptr
 
-myNormalBorderColor = "#849DAB"
+myNormalBorderColor  = "#849DAB"
 myFocusedBorderColor = "#24788F"
 
     -- grid applications (menu key)
@@ -127,6 +129,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,                 xK_v     ), namedScratchpadAction myScratchpads "ScrP_vim")
     , ((modm,                 xK_m     ), namedScratchpadAction myScratchpads "ScrP_cmus")
     , ((modm .|. shiftMask,   xK_m     ), namedScratchpadAction myScratchpads "ScrP_spt")
+    , ((modm,                 xK_a     ), namedScratchpadAction myScratchpads "ScrP_trackma")
 
     -- // grid
     , ((modm,                 xK_Tab   ), goToSelected def)
@@ -167,10 +170,11 @@ myScratchpads =
          [ NS "ScrP_alacritty" "alacritty -t scratchpad" (title =? "scratchpad") floatScratchpad
          , NS "ScrP_htop" "alacritty -t htop -e htop" (title =? "htop") floatScratchpad
          , NS "ScrP_vim" "alacritty -t vim -e vim" (title =? "vim") floatScratchpad
-         , NS "ScrP_ncdu" "alacritty -t ncdu -e bash -c 'ncdu /'" (title =? "ncdu") floatScratchpad
+         , NS "ScrP_ncdu" "alacritty -t ncdu -e ncdu" (title =? "ncdu") floatScratchpad
          , NS "help" "~/.config/xmonad/scripts/help.sh" (title =? "list of programs") floatScratchpad
          , NS "ScrP_cmus" "alacritty -t cmus -e cmus" (title =? "cmus") floatScratchpad
          , NS "ScrP_spt" "alacritty -t spotify-tui -e spt" (title =? "spotify-tui") floatScratchpad
+         , NS "ScrP_trackma" "alacritty -t trackma-curses -e trackma-curses" (title =? "trackma-curses") floatScratchpad
          ]
     where 
        floatScratchpad = customFloating $ W.RationalRect l t w h
@@ -232,8 +236,8 @@ myStartupHook = do
         spawnOnce "nitrogen --restore &"
         spawnOnce "picom &"
         spawnOnce "~/.config/xmonad/scripts/startup_screen.sh"
-        spawnOnce "xsetroot -cursor_name left_ptr &"
         spawnOnce "libinput-gestures &"
+        setDefaultCursor myCursor
 
 
 
