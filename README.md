@@ -2,7 +2,7 @@
 
 ## A custom [xmonad](https://xmonad.org) configuration with clickable workspaces and easy naviagation, packed with tons of [pre-installed packages](https://github.com/AnapalOne/xmonad-packed#list-of-packages) for Arch Linux.
 
-![alt text](https://github.com/AnapalOne/xmonad-packed/blob/main/50s5zbz9gqu81.png "xmonad")
+![xmonad](https://github.com/AnapalOne/xmonad-packed/blob/main/50s5zbz9gqu81.png "xmonad")
 > **Note:** `xmonad.hs` will have configurations for packages not included in this setup. Generally these will not cause problems or decrease the performance of xmonad, but if the extra lines of code bother you, feel free to remove them if you like.
 
 ## Requirements
@@ -48,29 +48,32 @@ reboot
  ##### And you're done! You may edit any of these configs to your liking.
 
 ## List of packages
+
+> See `setup.sh` for the full list of packages that will be installed.
+
 | Packages                                           | Description |
 | ---------------------------------------------------|:-------------:|
 | alacritty                                          | terminal emulator |
-| p7zip                                              | archiving and compression of files |
+| p7zip                                              | archiving and compression |
 | xmobar                                             | status bar |
-| picom                                              | compositor |
+| picom-jonaburg-git                                 | compositor |
 | libreoffice                                        | office suite |
 | xf86-input-libinput, libinput-gestures             | input device handler, touchscreen, touchpad drivers |
 | pulseaudio                                         | audio manager |
 | pamixer                                            | volume control w/ gui |
 | youtube-dl                                         | youtube video/audio downloader |
-| ttf-iosevka[-aile,-curly], ttf-bitstream-vera, ttf-nerd-fonts-symbols-mono | fonts |
+| ttf-iosevka[regular,aile,curly], ttf-bitstream-vera, ttf-nerd-fonts-symbols-mono, ttf-font | fonts |
 | xdotool                                            | input emulator |
 | htop                                               | program manager |
 | ncdu                                               | disk usage analyzer |
-| nnn, ranger                                        | file manager |
+| ranger, nemo                                       | file manager |
 | iwctl                                              | internet manager |
 | yay                                                | AUR helper |
 | subl, nano, vim                                    | text editors |
 | xprop                                              | shows information about a window |
 | flameshot                                          | capture screen |
 | tlp, tlpui                                         | battery manager |
-| nitrogen                                           | wallpaper |
+| nitrogen                                           | wallpaper manager |
 | firefox                                            | browser |
 | krita                                              | drawing software |
 | gimp                                               | image editor/drawing software |
