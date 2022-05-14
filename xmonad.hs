@@ -65,8 +65,8 @@ myGridSpawn = [ "subl","firefox","github-desktop",
 
 myWorkspaces :: [String]
 myWorkspaces = clickable . (map xmobarEscape) 
-            -- $ ["ter","doc","www","dev","vid","img","chat","mus","art"]
-            $ ["\xf120", "\xf718", "\xe743", "\xf121", "\xf008", "\xf03e", "\xf1d7", "\xf886", "\xf1fc"]
+            -- $ ["ter","doc","www","dev","vid","img","chat","mus","art"] -- text
+            $ ["\xf120", "\xf718", "\xe743", "\xf121", "\xf008", "\xf03e", "\xf1d7", "\xf886", "\xf1fc"] -- icons
     where
           clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
                         (i,ws) <- zip [1..9] l,
@@ -84,30 +84,29 @@ myWorkspaces = clickable . (map xmobarEscape)
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
     -- // windows
-    [ ((modm,            xK_BackSpace), kill)                               --close focused window
-    , ((modm,               xK_space ), sendMessage NextLayout)             --rotate layout
-    , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf) --reset layout order
-    , ((mod1Mask,           xK_Tab   ), windows W.focusDown)                --rotate focus between windows
-    , ((modm,               xK_Return), windows W.swapMaster  )             --swap focus master and window
-    , ((modm,               xK_comma ), windows W.swapUp      )             --move tiled window
+    [ ((modm,            xK_BackSpace), kill)                               -- close focused window
+    , ((modm,               xK_space ), sendMessage NextLayout)             -- rotate layout
+    , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf) -- reset layout order
+    , ((mod1Mask,           xK_Tab   ), windows W.focusDown)                -- rotate focus between windows
+    , ((modm,               xK_Return), windows W.swapMaster  )             -- swap focus master and window
+    , ((modm,               xK_comma ), windows W.swapUp      )             -- move tiled window
     , ((modm,               xK_period), windows W.swapDown    )             --
 
     -- // floating windows
-    , ((modm .|. shiftMask, xK_Tab   ), withFocused toggleFloat)                        --toggle between tiled and floating window
-    , ((modm,               xK_Up    ), withFocused (keysMoveWindow (0,-10)))           --move floating window
+    , ((modm .|. shiftMask, xK_Tab   ), withFocused toggleFloat)                        -- toggle between tiled and floating window
+    , ((modm,               xK_Up    ), withFocused (keysMoveWindow (0,-10)))           -- move floating window
     , ((modm,               xK_Down  ), withFocused (keysMoveWindow (0,10)))            --
     , ((modm,               xK_Left  ), withFocused (keysMoveWindow (-10,0)))           --
     , ((modm,               xK_Right ), withFocused (keysMoveWindow (10,0)))            --
-    , ((modm .|. shiftMask, xK_Up    ), withFocused (keysResizeWindow (0,-10) (0,0)))   --resize floating window
+    , ((modm .|. shiftMask, xK_Up    ), withFocused (keysResizeWindow (0,-10) (0,0)))   -- resize floating window
     , ((modm .|. shiftMask, xK_Down  ), withFocused (keysResizeWindow (0,10) (0,0)))    --
     , ((modm .|. shiftMask, xK_Left  ), withFocused (keysResizeWindow (-10,0) (0,0)))   --
     , ((modm .|. shiftMask, xK_Right ), withFocused (keysResizeWindow (10,0) (0,0)))    --
 
     -- // system commands
-    , ((modm,               xK_b     ), sendMessage ToggleStruts)                      --toggle xmobar to front of screen
-    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))                     --logout xmonad
-    , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")  --recompiles xmonad
-    , ((modm .|. shiftMask, xK_slash ), namedScratchpadAction myScratchpads "help")    -- show list of programs
+    , ((modm,               xK_b     ), sendMessage ToggleStruts)                      -- toggle xmobar to front of screen
+    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))                     -- logout xmonad
+    , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")  -- recompiles xmonad
     , ((modm .|. shiftMask, xK_F1    ), spawn "systemctl hibernate")
     , ((0,     xF86XK_MonBrightnessUp), spawn "lux -a 5%")
     , ((0,   xF86XK_MonBrightnessDown), spawn "lux -s 5%")
@@ -116,14 +115,15 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0,           xF86XK_AudioMute), spawn "pamixer -t")
 
     -- // programs
-    , ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)  --open terminal
-    , ((modm .|. shiftMask, xK_s     ), spawn "flameshot gui")         --equivelent to prntscr
-    , ((modm,               xK_r     ), spawn "dmenu_run")             --run program
+    , ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)  -- open terminal
+    , ((modm .|. shiftMask, xK_s     ), spawn "flameshot gui")         -- equivelent to prntscr
+    , ((modm,               xK_r     ), spawn "dmenu_run")             -- run program
     , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")                 --
-    , ((modm .|. shiftMask, xK_v     ), spawn "alacritty -t alsamixer -e alsamixer")  --sound system
+    , ((modm .|. shiftMask, xK_v     ), spawn "alacritty -t alsamixer -e alsamixer")  -- sound system
     
     -- // scratchpad
     , ((modm .|. controlMask, xK_Return), namedScratchpadAction myScratchpads "ScrP_alacritty")
+    , ((modm .|. shiftMask,   xK_slash ), namedScratchpadAction myScratchpads "help")
     , ((modm,                 xK_grave ), namedScratchpadAction myScratchpads "ScrP_htop")
     , ((modm .|. shiftMask,   xK_grave ), namedScratchpadAction myScratchpads "ScrP_ncdu")
     , ((modm,                 xK_v     ), namedScratchpadAction myScratchpads "ScrP_vim")
@@ -195,6 +195,11 @@ myScratchpads =
         -- > doShift to open only in a specific workspace
 myManageHook :: Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll
+
+        -- Opens the program only on a specific workspace.
+        -- NOTE: It will not work when the workspaces in myWorkspace does not match the doShift command here. 
+        --       To fix this, replace the workspace inside doShift with your renamed workspace.
+
         -- ter 
         [ title     =? "alacritty"      --> doShift "<action=xdotool key super+1>\xf120</action>"
         -- doc
@@ -219,13 +224,16 @@ myManageHook = composeAll
         , className =? "discord"        --> doShift "<action=xdotool key super+7>\xf1d7</action>" 
         --art
         , className =? "krita"          --> doShift "<action=xdotool key super+9>\xf1fc</action>" 
-        , className =? "Nemo"           --> doFloat
+
+        -- Places the window in floating mode.
+        , className =? "Nemo"           --> doCenterFloat
         , className =? "kmix"           --> doFloat
         , title     =? "alsamixer"      --> doFloat
         , className =? "Sxiv"           --> doFloat
         , title     =? "welcome"        --> doCenterFloat
         ]
 
+        -- Spotify's window name apparently cannot be found, so this is a workaround.
 spotifyWindowNameFix = dynamicPropertyChange "WM_NAME" (title =? "Spotify" --> doShift "<action=xdotool key super+8>\xf886</action>") --mus
 
         --event handling
