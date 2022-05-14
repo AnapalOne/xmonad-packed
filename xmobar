@@ -14,8 +14,8 @@ Config {
    , position = Top
 
    -- options: TopB, TopBM, BottomB, BottomBM, FullB, FullBM or NoBorder 
-   --     TopB, BottomB, FullB take no arguments, and request drawing a border at the top, bottom or around xmobar's window, respectively.
-   --     TopBM, BottomBM, FullBM take an integer argument, which is the margin, in pixels, between the border of the window and the drawn border.
+   --     TopB, BottomB, FullB takes no arguments and requests drawing a border at the top, bottom or around xmobar's window, respectively.
+   --     TopBM, BottomBM, FullBM takes an integer argument, which is the margin (in pixels), between the border of the window and the drawn border.
    , border = BottomB
 
 
