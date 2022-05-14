@@ -48,9 +48,6 @@ reboot
  ##### And you're done! You may edit any of these configs to your liking.
 
 ## List of packages
-
-> See `setup.sh` for the full list of packages that will be installed.
-
 | Packages                                           | Description |
 | ---------------------------------------------------|:-------------:|
 | alacritty                                          | terminal emulator |
@@ -83,6 +80,8 @@ reboot
 | spotify, cmus                                      | music |
 | discord                                            | text and voice app |
 | github-desktop                                     | github desktop |
+
+> See `setup.sh` for the full list of packages that will be installed.
 
 ## Troubleshooting
 
