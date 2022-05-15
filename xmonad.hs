@@ -87,8 +87,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm,            xK_BackSpace), kill)                               -- close focused window
     , ((modm,               xK_space ), sendMessage NextLayout)             -- rotate layout
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf) -- reset layout order
-    , ((mod1Mask,           xK_Tab   ), windows W.focusDown)                -- rotate focus between windows
+    , ((mod1Mask,           xK_Tab   ), windows W.focusDown   )             -- rotate focus between windows
     , ((modm,               xK_Return), windows W.swapMaster  )             -- swap focus master and window
+    , ((modm .|. shiftMask, xK_comma ), sendMessage Shrink    )             -- decreases master window size
+    , ((modm .|. shiftMask, xK_period), sendMessage Expand    )             -- increases master window size
     , ((modm,               xK_comma ), windows W.swapUp      )             -- move tiled window
     , ((modm,               xK_period), windows W.swapDown    )             --
 
@@ -228,7 +230,7 @@ myManageHook = composeAll
         -- Places the window in floating mode.
         , className =? "Nemo"           --> doCenterFloat
         , className =? "kmix"           --> doFloat
-        , title     =? "alsamixer"      --> doFloat
+        , title     =? "alsamixer"      --> doCenterFloat
         , className =? "Sxiv"           --> doFloat
         , title     =? "welcome"        --> doCenterFloat
         ]
