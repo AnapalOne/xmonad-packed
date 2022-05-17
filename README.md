@@ -8,13 +8,16 @@
 ## Requirements
 ### git
 ``` 
-sudo pacman -S git
+pacman -S git
 ```
   - Verify: `git --version`
 
 ### yay
 ```
 git clone https://aur.archlinux.org/yay.git && cd yay
+```
+```
+pacman -S base-devel
 ```
 ```
 makepkg -si
