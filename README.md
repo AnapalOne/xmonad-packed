@@ -34,7 +34,7 @@ git clone https://github.com/AnapalOne/xmonad-packed && cd xmonad-packed
    - In this case, you will need to add some configs to `xmonad.hs logHook` in order for this xmobar to work. [Details found here](https://hackage.haskell.org/package/xmonad-contrib-0.17.0/docs/XMonad-Hooks-DynamicLog.html).
 - If you want to apply my configs to your programs, copy your selected config file (see `files` and `configs`) and apply it to your respective directory.
 
-#### b) Installing this config and packages from base Arch Linux/existing window manager
+#### or b) Installing this config and packages from base Arch Linux/existing window manager
 ```
 chmod +x ./setup.sh
 ```
