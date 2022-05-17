@@ -1,5 +1,5 @@
 # Install packages
-bash -c 'sudo pacman -S xmonad xmonad-contrib alacritty xterm wget dmenu xf86-input-libinput xmobar neofetch htop ncdu vim nano xorg xorg-xinit p7zip flameshot pulseaudio-alsa pulseaudio-bluetooth pamixer tlp youtube-dl ranger cmus nitrogen firefox krita xdotool gimp mpv vlc audacity discord libreoffice-still ttc-iosevka ttc-iosevka-aile ttc-iosevka-curly ttf-bitstream-vera ttf-font ttf-nerd-fonts-symbols-mono base-devel'
+bash -c 'sudo pacman -S xmonad xmonad-contrib alacritty xterm wget dmenu xf86-input-libinput xmobar neofetch htop ncdu vim nano xorg xorg-xinit p7zip flameshot pulseaudio-alsa pulseaudio-bluetooth pamixer tlp youtube-dl ranger cmus nitrogen firefox krita xdotool gimp mpv vlc audacity discord libreoffice-still ttc-iosevka ttc-iosevka-aile ttc-iosevka-curly ttf-bitstream-vera ttf-font ttf-nerd-fonts-symbols-mono'
 bash -c 'yay -S --mflags --skipinteg tlpui-git spotify picom-jonaburg-git github-desktop-bin mirage libinput-gestures sublime-text-4'
 
 # Move configs and files to directories
