@@ -1,7 +1,7 @@
 Config { 
 
-   -- // appearance
-     font =         "xft:Symbols Nerd Font:size=10, Bitstream Vera Sans Mono:size=8:bold:antialias=true:hinting=true"
+   -- // appearance Bitstream Vera Sans Mono
+     font =         "xft:Symbols Nerd Font:size=10,  Bitstream Vera Sans Mono:size=8:bold:antialias=true:hinting=true"
    , bgColor =      "black"
    , fgColor =      "white"
    , borderColor =  "#646464"
@@ -14,15 +14,17 @@ Config {
    , position = Top
 
    -- options: TopB, TopBM, BottomB, BottomBM, FullB, FullBM or NoBorder 
-   --     TopB, BottomB, FullB takes no arguments and requests drawing a border at the top, bottom or around xmobar's window, respectively.
-   --     TopBM, BottomBM, FullBM takes an integer argument, which is the margin (in pixels), between the border of the window and the drawn border.
+   --     TopB, BottomB, FullB take no arguments, and request drawing a border at the top, bottom or around xmobar's window, respectively.
+   --     TopBM, BottomBM, FullBM take an integer argument, which is the margin, in pixels, between the border of the window and the drawn border.
    , border = BottomB
+
 
 
    -- // layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
    , template = " %battery%  %default:Master%  | %UnsafeStdinReader%}{                      <fc=#909090>%cpu% / %coretemp%</fc> | <fc=#909090>%memory%</fc> | <fc=#909090>%dynnetwork%</fc> [ %uptime% | %date% ] "
+
 
 
    -- // general behavior
@@ -32,6 +34,7 @@ Config {
    , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
    , pickBroadest =     False   -- choose widest display (multi-monitor)
    , persistent =       True    -- enable/disable hiding (True = disabled)
+
 
 
    -- // layout template
@@ -95,7 +98,7 @@ Config {
                                        -- AC "on" status
                                        , "-O" , "<fc=#dAA520>Charging..</fc>"
                                        -- charged status
-                                       , "-i" , "<fc=#006000>Charged!</fc>"      
+                                       , "-i" , "Charged!"    
                              ] 50
 
         -- time and date indicator 
