@@ -1,6 +1,6 @@
 Config { 
 
-   -- // appearance Bitstream Vera Sans Mono
+   -- // appearance
      font =         "xft:Symbols Nerd Font:size=10,  Bitstream Vera Sans Mono:size=8:bold:antialias=true:hinting=true"
    , bgColor =      "black"
    , fgColor =      "white"
