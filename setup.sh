@@ -4,7 +4,7 @@ bash -c 'yay -S --mflags --skipinteg --answerclean All --answerdiff All --answer
 
 # Move configs and files to directories
 bash -c 'mkdir ~/.xmonad && cp xmonad.hs ~/.xmonad/'
-bash -c 'mkdir ~/.xmobarrc && cp xmobar ~/.xmobarrc/'
+bash -c 'mkdir ~/.xmobarrc && cp xmobar.hs ~/.xmobarrc/'
 bash -c 'mkdir -p ~/.config/alacritty && cp config/alacritty.yml ~/.config/alacritty/'
 bash -c 'mkdir -p ~/.config/xmonad/scripts && cp files/help ~/.config/xmonad/'
 bash -c 'mkdir ~/.config/picom && cp config/picom.conf ~/.config/picom/'

@@ -242,7 +242,7 @@ myStartupHook = do
 ---------------------------------------------------------
 
 main = do
-   xmproc <- spawnPipe "xmobar -x 0 ~/.xmobarrc/xmobar"
+   xmproc <- spawnPipe "xmobar -x 0 ~/.xmobarrc/xmobar.hs"
    xmonad $ docks $ ewmh desktopConfig
         { terminal           = myTerminal
         , modMask            = myModMask
