@@ -120,6 +120,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_s     ), spawn "flameshot gui")         -- equivelent to prntscr
     , ((modm,               xK_r     ), spawn "dmenu_run")             -- run program
     , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")                 --
+    , ((modm .|. shiftMask, xK_v     ), spawn "alacritty -t alsamixer -e alsamixer")  -- sound system
     
     -- // scratchpad
     , ((modm .|. controlMask, xK_Return), namedScratchpadAction myScratchpads "ScrP_alacritty")
@@ -219,6 +220,7 @@ myManageHook = composeAll
 
         -- Places the window in floating mode.
         , title     =? "welcome"        --> doCenterFloat
+        , title     =? "alsamixer"      --> doCenterFloat
         ]
 
         -- Spotify's window name apparently cannot be found, so this is a workaround.
