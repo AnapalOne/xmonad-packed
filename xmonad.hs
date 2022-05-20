@@ -53,9 +53,8 @@ myFocusedBorderColor = "#24788F"
 
     -- grid applications (menu key)
 myGridSpawn = [ "subl","firefox","github-desktop",
-                "libreoffice","nemo","kdenlive",
-                "discord","spotify","gimp","krita","obs",
-                "kmix","deepin-calculator"]
+                "libreoffice", "discord","spotify",
+                "gimp","krita"]
 
 
 
@@ -121,7 +120,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_s     ), spawn "flameshot gui")         -- equivelent to prntscr
     , ((modm,               xK_r     ), spawn "dmenu_run")             -- run program
     , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")                 --
-    , ((modm .|. shiftMask, xK_v     ), spawn "alacritty -t alsamixer -e alsamixer")  -- sound system
     
     -- // scratchpad
     , ((modm .|. controlMask, xK_Return), namedScratchpadAction myScratchpads "ScrP_alacritty")
@@ -130,8 +128,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask,   xK_grave ), namedScratchpadAction myScratchpads "ScrP_ncdu")
     , ((modm,                 xK_v     ), namedScratchpadAction myScratchpads "ScrP_vim")
     , ((modm,                 xK_m     ), namedScratchpadAction myScratchpads "ScrP_cmus")
-    , ((modm .|. shiftMask,   xK_m     ), namedScratchpadAction myScratchpads "ScrP_spt")
-    , ((modm,                 xK_a     ), namedScratchpadAction myScratchpads "ScrP_trackma")
 
     -- // grid
     , ((modm,                 xK_Tab   ), goToSelected def)
@@ -175,8 +171,6 @@ myScratchpads =
          , NS "ScrP_ncdu" "alacritty -t ncdu -e ncdu" (title =? "ncdu") floatScratchpad
          , NS "help" "~/.config/xmonad/scripts/help.sh" (title =? "list of programs") floatScratchpad
          , NS "ScrP_cmus" "alacritty -t cmus -e cmus" (title =? "cmus") floatScratchpad
-         , NS "ScrP_spt" "alacritty -t spotify-tui -e spt" (title =? "spotify-tui") floatScratchpad
-         , NS "ScrP_trackma" "alacritty -t trackma-curses -e trackma-curses" (title =? "trackma-curses") floatScratchpad
          ]
     where 
        floatScratchpad = customFloating $ W.RationalRect l t w h
@@ -207,18 +201,14 @@ myManageHook = composeAll
         -- doc
         , className =? "Subl"           --> doShift "<action=xdotool key super+2>\xf718</action>" 
         , className =? "libreoffice-startcenter" --> doShift "<action=xdotool key super+2>\xf718</action>"
-        , className =? "calibre"        --> doShift "<action=xdotool key super+2>\xf718</action>" 
         --www
         , className =? "firefox"        --> doShift "<action=xdotool key super+3>\xe743</action>" 
-        , className =? "Chromium"       --> doShift "<action=xdotool key super+3>\xe743</action>"
         --dev
         , className =? "Audacity"       --> doShift "<action=xdotool key super+4>\xf121</action>" 
         , className =? "GitHub Desktop" --> doShift "<action=xdotool key super+4>\xf121</action>" 
-        , className =? "Code"           --> doShift "<action=xdotool key super+4>\xf121</action>" 
         --vid
         , className =? "vlc"            --> doShift "<action=xdotool key super+5>\xf008</action>" 
         , className =? "mpv"            --> doShift "<action=xdotool key super+5>\xf008</action>" 
-        , className =? "kdenlive"       --> doShift "<action=xdotool key super+5>\xf008</action>" 
         --img
         , className =? "Gimp"           --> doShift "<action=xdotool key super+6>\xf03e</action>" 
         , className =? "Mirage"         --> doShift "<action=xdotool key super+6>\xf03e</action>" 
@@ -228,10 +218,6 @@ myManageHook = composeAll
         , className =? "krita"          --> doShift "<action=xdotool key super+9>\xf1fc</action>" 
 
         -- Places the window in floating mode.
-        , className =? "Nemo"           --> doCenterFloat
-        , className =? "kmix"           --> doFloat
-        , title     =? "alsamixer"      --> doCenterFloat
-        , className =? "Sxiv"           --> doFloat
         , title     =? "welcome"        --> doCenterFloat
         ]
 
