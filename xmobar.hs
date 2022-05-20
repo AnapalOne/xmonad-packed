@@ -6,6 +6,7 @@ Config {
    , fgColor =      "white"
    , borderColor =  "#646464"
 
+   -- Position
    -- options: Top, TopP, TopW, TopSize, Bottom, BottomP, BottomW, BottomSize or Static
    --          examples:
    --              Static { xpos = 14 , ypos = 10, width = 1330, height = 15 }
@@ -13,6 +14,7 @@ Config {
    --              BottomP 120 0
    , position = Top
 
+   -- Border
    -- options: TopB, TopBM, BottomB, BottomBM, FullB, FullBM or NoBorder 
    --     TopB, BottomB, FullB take no arguments, and request drawing a border at the top, bottom or around xmobar's window, respectively.
    --     TopBM, BottomBM, FullBM take an integer argument, which is the margin, in pixels, between the border of the window and the drawn border.
