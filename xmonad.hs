@@ -6,6 +6,7 @@ import XMonad
 
 import XMonad.Prompt
 import XMonad.Prompt.Input
+import XMonad.Prompt.ConfirmPrompt
 
 import Data.Monoid
 import System.Exit
@@ -79,7 +80,7 @@ myWorkspaces = clickable . (map xmobarEscape)
 
 ---------------------------------------------------------
 -- Key Binds
--- > modm = Windows Key
+-- > modm = myModMask
 --
 -- Do xev | sed -ne '/^KeyPress/,/^$/p' for key maps.
 ---------------------------------------------------------
@@ -90,7 +91,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm,            xK_BackSpace), kill)                               -- close focused window
     , ((modm,               xK_space ), sendMessage NextLayout)             -- rotate layout
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf) -- reset layout order
-    , ((mod1Mask,           xK_Tab   ), windows W.focusDown   )             -- rotate focus between windows
+    , ((mod1Mask,           xK_Tab   ), windows W.focusUp     )             -- rotate focus between windows
     , ((modm,               xK_Return), windows W.swapMaster  )             -- swap focus master and window
     , ((modm .|. shiftMask, xK_comma ), sendMessage Shrink    )             -- decreases master window size
     , ((modm .|. shiftMask, xK_period), sendMessage Expand    )             -- increases master window size
@@ -109,9 +110,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_Right ), withFocused (keysResizeWindow (10,0) (0,0)))    --
 
     -- // system commands
-    , ((modm,               xK_b     ), sendMessage ToggleStruts)                      -- toggle xmobar to front of screen
-    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))                     -- logout xmonad
-    , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")  -- recompiles xmonad
+    , ((modm,               xK_b     ), sendMessage ToggleStruts)                                                                -- toggle xmobar to front of screen
+    , ((modm .|. shiftMask, xK_q     ), confirmPrompt logoutPrompt "logout?" $ io (exitWith ExitSuccess))                        -- logout from xmonad
+    , ((modm,               xK_q     ), confirmPrompt logoutPrompt "recompile?" $ spawn "xmonad --recompile; xmonad --restart")  -- recompiles xmonad
     , ((modm .|. shiftMask, xK_F1    ), spawn "systemctl hibernate")
     , ((0,     xF86XK_MonBrightnessUp), spawn "lux -a 5%")
     , ((0,   xF86XK_MonBrightnessDown), spawn "lux -s 5%")
@@ -120,12 +121,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0,           xF86XK_AudioMute), spawn "pamixer -t")
 
     -- // programs
-    , ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)  -- open terminal
-    , ((modm .|. shiftMask, xK_s     ), spawn "flameshot gui")         -- equivelent to prntscr
-    , ((modm,               xK_r     ), spawn "dmenu_run")             -- run program
-    , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")                 --
-    , ((modm .|. shiftMask, xK_v     ), spawn "alacritty -t alsamixer -e alsamixer")  -- sound system
-    , ((modm,               xK_p     ), qalcPrompt qalcPromptConfig "qalc (Press escape to exit)" ) -- quick prompt
+    , ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)                               -- open terminal
+    , ((modm .|. shiftMask, xK_s     ), spawn "flameshot gui")                                      -- equivelent to prntscr
+    , ((modm,               xK_r     ), spawn "dmenu_run")                                          -- run program
+    , ((modm .|. shiftMask, xK_v     ), spawn "alacritty -t alsamixer -e alsamixer")                -- sound system
+    , ((modm,               xK_p     ), qalcPrompt qalcPromptConfig "qalc (Press escape to exit)" ) -- quick calculator
 
     
     -- // scratchpad
@@ -190,7 +190,7 @@ myScratchpads =
 
 
 ---------------------------------------------------------
--- Prompt
+-- Prompts
 ---------------------------------------------------------
 
 qalcPromptConfig :: XPConfig
@@ -200,8 +200,20 @@ qalcPromptConfig = def
        , fgColor = "white"
        , bgHLight = "white"
        , fgHLight = "black"
-       , borderColor = "white"
+       , borderColor = "#646464"
        , position = Bottom 
+       }
+
+logoutPrompt :: XPConfig
+logoutPrompt = def 
+       { font = "xft: Bitstream Vera Sans Mono:size=8:bold:antialias=true:hinting=true"
+       , bgColor = "black"
+       , fgColor = "white"
+       , bgHLight = "white"
+       , fgHLight = "black"
+       , borderColor = "white"
+       , height = 50
+       , position = CenteredAt (0.5) (0.5)
        }
 
 
