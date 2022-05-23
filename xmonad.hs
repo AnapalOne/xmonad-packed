@@ -110,10 +110,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_Right ), withFocused (keysResizeWindow (10,0) (0,0)))    --
 
     -- // system commands
-    , ((modm,               xK_b     ), sendMessage ToggleStruts)                                                                -- toggle xmobar to front of screen
-    , ((modm .|. shiftMask, xK_q     ), confirmPrompt logoutPrompt "logout?" $ io (exitWith ExitSuccess))                        -- logout from xmonad
-    , ((modm,               xK_q     ), confirmPrompt logoutPrompt "recompile?" $ spawn "xmonad --recompile; xmonad --restart")  -- recompiles xmonad
-    , ((modm .|. shiftMask, xK_F1    ), spawn "systemctl hibernate")
+    , ((modm,                 xK_b   ), sendMessage ToggleStruts)                                                                -- toggle xmobar to front of screen
+    , ((modm,                 xK_q   ), confirmPrompt logoutPrompt "recompile?" $ spawn "xmonad --recompile; xmonad --restart")  -- recompiles xmonad
+    , ((modm,               xK_Escape), confirmPrompt logoutPrompt "logout?" $ io (exitWith ExitSuccess))                        -- logout from xmonad
+    , ((modm .|. shiftMask, xK_Escape), confirmPrompt logoutPrompt "reboot?" $ spawn "systemctl reboot")                         -- reboot computer
+    , ((0,               xF86XK_Sleep), spawn "systemctl hibernate")                                                             -- sleep mode
     , ((0,     xF86XK_MonBrightnessUp), spawn "lux -a 5%")
     , ((0,   xF86XK_MonBrightnessDown), spawn "lux -s 5%")
     , ((0,    xF86XK_AudioRaiseVolume), spawn "pamixer -i 5")
