@@ -3,6 +3,10 @@
 ---------------------------------------------------------
 
 import XMonad
+
+import XMonad.Prompt
+import XMonad.Prompt.Input
+
 import Data.Monoid
 import System.Exit
 import System.IO
@@ -45,9 +49,9 @@ import qualified Data.Map        as M
 
 myTerminal              = "alacritty"
 myModMask               = mod4Mask -- win key
-myBorderWidth           = 3
 myCursor                = xC_left_ptr
 
+myBorderWidth        = 3
 myNormalBorderColor  = "#849DAB"
 myFocusedBorderColor = "#24788F"
 
@@ -121,6 +125,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_r     ), spawn "dmenu_run")             -- run program
     , ((modm .|. shiftMask, xK_r     ), spawn "gmrun")                 --
     , ((modm .|. shiftMask, xK_v     ), spawn "alacritty -t alsamixer -e alsamixer")  -- sound system
+    , ((modm,               xK_p     ), qalcPrompt qalcPromptConfig "qalc (Press escape to exit)" ) -- quick prompt
+
     
     -- // scratchpad
     , ((modm .|. controlMask, xK_Return), namedScratchpadAction myScratchpads "ScrP_alacritty")
@@ -180,6 +186,23 @@ myScratchpads =
                     w = 0.9
                     l = 0.95 -h
                     t = 0.95 -w
+
+
+
+---------------------------------------------------------
+-- Prompt
+---------------------------------------------------------
+
+qalcPromptConfig :: XPConfig
+qalcPromptConfig = def
+       { font = "xft: Bitstream Vera Sans Mono:size=8:bold:antialias=true:hinting=true"
+       , bgColor = "black"
+       , fgColor = "white"
+       , bgHLight = "white"
+       , fgHLight = "black"
+       , borderColor = "white"
+       , position = Bottom 
+       }
 
 
 
@@ -294,3 +317,11 @@ xmobarEscape = concatMap doubleLts
    where
            doubleLts '<' = "<<"
            doubleLts x   = [x]
+
+qalcPrompt :: XPConfig -> String -> X () 
+qalcPrompt c ans =
+    inputPrompt c (trim ans) ?+ \input -> 
+        liftIO(runProcessWithInput "qalc" [input] "") >>= qalcPrompt c 
+    where
+        trim  = f . f
+            where f = reverse . dropWhile isSpace
