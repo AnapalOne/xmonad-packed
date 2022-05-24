@@ -1,17 +1,21 @@
 ---------------------------------------------------------
--- XMonad Config by Anapal
+--            XMonad Config by Anapal                  --
+--     My personal config for my (or your) needs.      --
+--                                                     --
+--    > https://github.com/AnapalOne/xmonad-packed     --
 ---------------------------------------------------------
 
 import XMonad
 
-import XMonad.Prompt
-import XMonad.Prompt.Input
-import XMonad.Prompt.ConfirmPrompt
-
 import Data.Monoid
+import Data.Char (isSpace)
 import System.Exit
 import System.IO
 import Graphics.X11.ExtraTypes.XF86
+
+import XMonad.Prompt
+import XMonad.Prompt.Input
+import XMonad.Prompt.ConfirmPrompt
 
 import XMonad.Config.Desktop
 
