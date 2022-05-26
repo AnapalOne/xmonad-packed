@@ -130,7 +130,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_s     ), spawn "flameshot gui")                                      -- equivelent to prntscr
     , ((modm,               xK_r     ), spawn "dmenu_run")                                          -- run program
     , ((modm .|. shiftMask, xK_v     ), spawn "alacritty -t alsamixer -e alsamixer")                -- sound system
-    , ((modm,               xK_p     ), qalcPrompt qalcPromptConfig "qalc (Press escape to exit)" ) -- quick calculator
 
     
     -- // scratchpad
@@ -198,17 +197,6 @@ myScratchpads =
 -- Prompts
 ---------------------------------------------------------
 
-qalcPromptConfig :: XPConfig
-qalcPromptConfig = def
-       { font = "xft: Bitstream Vera Sans Mono:size=8:bold:antialias=true:hinting=true"
-       , bgColor = "black"
-       , fgColor = "white"
-       , bgHLight = "white"
-       , fgHLight = "black"
-       , borderColor = "#646464"
-       , position = Bottom 
-       }
-
 logoutPrompt :: XPConfig
 logoutPrompt = def 
        { font = "xft: Bitstream Vera Sans Mono:size=8:bold:antialias=true:hinting=true"
@@ -241,21 +229,21 @@ myManageHook = composeAll
         [ title     =? "alacritty"      --> doShift "<action=xdotool key super+1>\xf120</action>"
         -- doc
         , className =? "libreoffice-startcenter" --> doShift "<action=xdotool key super+2>\xf718</action>"
-        --www
+        -- www
         , className =? "firefox"        --> doShift "<action=xdotool key super+3>\xe743</action>" 
-        --dev
-        , className =? "Subl"           --> doShift "<action=xdotool key super+2>\xf718</action>" 
+        -- dev
+        , className =? "Subl"           --> doShift "<action=xdotool key super+4>\xf121</action>" 
         , className =? "Audacity"       --> doShift "<action=xdotool key super+4>\xf121</action>" 
         , className =? "GitHub Desktop" --> doShift "<action=xdotool key super+4>\xf121</action>" 
-        --vid
+        -- vid
         , className =? "vlc"            --> doShift "<action=xdotool key super+5>\xf008</action>" 
         , className =? "mpv"            --> doShift "<action=xdotool key super+5>\xf008</action>" 
-        --img
+        -- img
         , className =? "Gimp"           --> doShift "<action=xdotool key super+6>\xf03e</action>" 
         , className =? "Mirage"         --> doShift "<action=xdotool key super+6>\xf03e</action>" 
-        --chat
+        -- chat
         , className =? "discord"        --> doShift "<action=xdotool key super+7>\xf1d7</action>" 
-        --art
+        -- art
         , className =? "krita"          --> doShift "<action=xdotool key super+9>\xf1fc</action>" 
 
         -- Places the window in floating mode.
@@ -263,7 +251,7 @@ myManageHook = composeAll
         , title     =? "alsamixer"      --> doCenterFloat
         ]
 
-        -- Spotify's window name apparently cannot be found, so this is a workaround.
+        -- Spotify's WM_CLASS name is not set when first opening the window, so this is a workaround.
 spotifyWindowNameFix = dynamicPropertyChange "WM_NAME" (title =? "Spotify" --> doShift "<action=xdotool key super+8>\xf886</action>") --mus
 
         --event handling
