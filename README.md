@@ -4,7 +4,7 @@
 
 ![xmonadstartup](https://github.com/AnapalOne/xmonad-packed/blob/main/picture1.png "Startup Screen")
 ![xmonadwindows](https://github.com/AnapalOne/xmonad-packed/blob/main/picture2.png "Windows")
-> **Note:** `xmonad.hs` will have configurations for packages not included in this setup. Generally these will not cause problems or decrease the performance of xmonad, but if the extra lines of code bother you, feel free to remove them if you like.
+> **Note:** `xmonad.hs` may have configurations for packages not included in this setup. Generally these will not cause problems or decrease the performance of xmonad, but if the extra lines of code bother you, feel free to remove them if you like.
 
 ## Requirements
 ### git
