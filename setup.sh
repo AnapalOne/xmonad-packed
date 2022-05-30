@@ -6,7 +6,7 @@ bash -c 'yay -S --mflags --skipinteg --answerclean All --answerdiff All --answer
 [[ -d ~/.xmonad ]] && echo "~/.xmonad already exists." || (echo "Creating ~/.xmonad directory.." && bash -c 'mkdir ~/.xmonad')
 [[ -d ~/.xmobarrc ]] && echo "~/.xmobarrc already exists." || (echo "Creating ~/.xmobarrc directory.." && bash -c 'mkdir ~/.xmobarrc')
 [[ -d ~/.config/alacritty ]] && echo "~/.config/alacritty already exists." || (echo "Creating ~/.config/alacritty directory.." && bash -c 'mkdir -p ~/.config/alacritty')
-[[ -d ~/.config/xmonad/scripts ]] && echo "~/.config/xmonad/scripts already exists." || (echo "Creating ~/.config/xmonad/scripts directory.." && bash -c 'mkdir ~/.config/xmonad/scripts')
+[[ -d ~/.config/xmonad/ ]] && echo "~/.config/xmonad/ already exists." || (echo "Creating ~/.config/xmonad/ directory.." && bash -c 'mkdir -p ~/.config/xmonad/scripts')
 [[ -d ~/.config/picom ]] && echo "~/.config/picom already exists." || (echo "Creating ~/.config/picom directory.." && bash -c 'mkdir ~/.config/picom')
 [[ -d ~/.config/neofetch ]] && echo "~/.config/neofetch already exists." || (echo "Creating ~/.config/neofetch directory.." && bash -c 'mkdir ~/.config/neofetch')
 [[ -d ~/Pictures/Ascii/ ]] && echo "~/Pictures/Ascii/ already exists." || (echo "Creating ~/Pictures/Ascii/ directory.." && bash -c 'mkdir -p ~/Pictures/Ascii/ ')
