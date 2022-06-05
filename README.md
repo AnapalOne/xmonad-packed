@@ -6,6 +6,13 @@
 ![xmonadwindows](https://github.com/AnapalOne/xmonad-packed/blob/main/picture2.png "Windows")
 > **Note:** `xmonad.hs` may have configurations for packages not included in this setup. Generally these will not cause problems or decrease the performance of xmonad, but if the extra lines of code bother you, feel free to remove them if you like.
 
+## Contents
+
+- [Requirements](https://github.com/AnapalOne/xmonad-packed#requirements)
+- [Installation](https://github.com/AnapalOne/xmonad-packed#installation)
+- [List of packages](https://github.com/AnapalOne/xmonad-packed#list-of-packages)
+- [Troubleshooting](https://github.com/AnapalOne/xmonad-packed#troubleshooting)
+
 ## Requirements
 ### git
 ``` 
