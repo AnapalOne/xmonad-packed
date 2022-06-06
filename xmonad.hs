@@ -333,11 +333,3 @@ xmobarEscape = concatMap doubleLts
    where
            doubleLts '<' = "<<"
            doubleLts x   = [x]
-
-qalcPrompt :: XPConfig -> String -> X () 
-qalcPrompt c ans =
-    inputPrompt c (trim ans) ?+ \input -> 
-        liftIO(runProcessWithInput "qalc" [input] "") >>= qalcPrompt c 
-    where
-        trim  = f . f
-            where f = reverse . dropWhile isSpace
