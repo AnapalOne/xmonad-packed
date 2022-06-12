@@ -107,7 +107,7 @@ reboot
    - To fix this, open the terminal with `Super + Shift + Enter` and type `killall picom` (note that you won't see any activity, so you might have do it blindly). As a result, there will be no compositor running but xmonad can be used without it.
 
 ### pacman
-- `The requested URL returned error: 404`: Your local database may be outdated. To fix this, you may do a system upgrade.
+- `The requested URL returned error: 404`: Your local database may be outdated. To fix this, you may need a system upgrade.
 ```
 pacman -Syu
 ```
