@@ -9,7 +9,7 @@ Config {
    -- Position
    -- options: Top, TopP, TopW, TopSize, Bottom, BottomP, BottomW, BottomSize or Static
    --          examples:
-   --              Static { xpos = 14 , ypos = 10, width = 1330, height = 15 }
+   --              Static { xpos = 14 , ypos = 10, width = 1330, height = 20 }
    --              BottomW C 75
    --              BottomP 120 0
    , position = Top
@@ -25,7 +25,7 @@ Config {
    -- // layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = " %battery%  %default:Master%  | %UnsafeStdinReader%}{                      <fc=#909090>%cpu% / %coretemp%</fc> | <fc=#909090>%memory%</fc> | <fc=#909090>%dynnetwork%</fc> [ %uptime% | %date% ] "
+   , template = " %battery%  %default:Master%  | %UnsafeStdinReader%}{                <fc=#909090>%cpu% / %coretemp%</fc> | <fc=#909090>%memory%</fc> | <fc=#909090>%dynnetwork%</fc> [ %uptime% | %date% ] "
 
 
 
