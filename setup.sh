@@ -19,7 +19,7 @@ bash -c 'cp files/help ~/.config/xmonad/'
 bash -c 'cp config/picom.conf ~/.config/picom/'
 bash -c 'cp config/neofetch_config.conf ~/.config/neofetch/config.conf'
 bash -c 'cp files/archlinux.txt ~/Pictures/Ascii/'
-bash -c 'cp config/shell/help.sh config/shell/startup_screen.sh ~/.config/xmonad/scripts/'
+bash -c 'cp config/shell/help.sh config/shell/startup_window.sh ~/.config/xmonad/scripts/'
 
 # Add execution permissions to shell scripts
-bash -c 'chmod +x ~/.config/xmonad/scripts/help.sh && chmod +x ~/.config/xmonad/scripts/startup_screen.sh'
+bash -c 'chmod +x ~/.config/xmonad/scripts/help.sh && chmod +x ~/.config/xmonad/scripts/startup_window.sh'
