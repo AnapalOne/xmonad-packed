@@ -8,10 +8,10 @@
 
 ## Contents
 
-- [Requirements](https://github.com/AnapalOne/xmonad-packed#requirements)
-- [Installation](https://github.com/AnapalOne/xmonad-packed#installation)
-- [List of packages](https://github.com/AnapalOne/xmonad-packed#list-of-packages)
-- [Troubleshooting](https://github.com/AnapalOne/xmonad-packed#troubleshooting)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [List of Packages](#list-of-packages)
+- [Troueshooting](#troubleshooting)
 
 ## Requirements
 ### git
