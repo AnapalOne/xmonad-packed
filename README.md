@@ -32,7 +32,7 @@ makepkg -si
 ``` 
 
 ## Installation
-#### Download
+### Download
 ``` 
 git clone https://github.com/AnapalOne/xmonad-packed && cd xmonad-packed
 ``` 
