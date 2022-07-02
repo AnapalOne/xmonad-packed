@@ -22,14 +22,14 @@ bash -c 'yay -S --noconfirm --mflags --skipinteg --answerclean All --answerdiff 
 [[ -d ~/Pictures/Ascii/ ]] && echo "~/Pictures/Ascii/ already exists." || (echo "Creating ~/Pictures/Ascii/ directory.." && bash -c 'mkdir -p ~/Pictures/Ascii/ ')
 
 # Move configs and files to directories
-bash -c 'cp xmonad.hs ~/.xmonad/'
-bash -c 'cp xmobar.hs ~/.xmobarrc/'
-bash -c 'cp config/alacritty.yml ~/.config/alacritty/'
-bash -c 'cp files/help ~/.config/xmonad/'
-bash -c 'cp config/picom.conf ~/.config/picom/'
-bash -c 'cp config/neofetch_config.conf ~/.config/neofetch/config.conf'
-bash -c 'cp files/archlinux.txt ~/Pictures/Ascii/'
-bash -c 'cp config/shell/help.sh config/shell/startup_window.sh ~/.config/xmonad/scripts/'
+echo "Copying xmonad.hs to ~/.xmonad/" && bash -c 'cp xmonad.hs ~/.xmonad/'
+echo "Copying xmobar.hs to ~/.xmobarrc/" && bash -c 'cp xmobar.hs ~/.xmobarrc/'
+echo "Copying alacritty.yml to ~/.config/alacritty/" && bash -c 'cp config/alacritty.yml ~/.config/alacritty/'
+echo "Copying help to ~/.config/xmonad/" && bash -c 'cp files/help ~/.config/xmonad/'
+echo "Copying picom.conf to ~/.config/picom/" && bash -c 'cp config/picom.conf ~/.config/picom/'
+echo "Copying neofetch_config.conf to ~/.config/neofetch/config.conf" && bash -c 'cp config/neofetch_config.conf ~/.config/neofetch/config.conf'
+echo "Copying archlinux.txt to ~/Pictures/Ascii/" && bash -c 'cp files/archlinux.txt ~/Pictures/Ascii/'
+echo "Copying help.sh and startup_window.sh to ~/.config/xmonad/scripts/" && bash -c 'cp config/shell/help.sh config/shell/startup_window.sh ~/.config/xmonad/scripts/'
 
 # Add execution permissions to shell scripts
 bash -c 'chmod +x ~/.config/xmonad/scripts/help.sh && chmod +x ~/.config/xmonad/scripts/startup_window.sh'
