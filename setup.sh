@@ -2,8 +2,7 @@
 read -p "Do you want to install this configuration now? (y/n) " yn
 
 case $yn in
-      [Yy] ) echo "Installing.."
-             break ;;
+      [Yy] ) echo "Installing.." ;;
       [Nn] ) exit ;;
          * ) echo "Invalid choice."
              exit ;;
