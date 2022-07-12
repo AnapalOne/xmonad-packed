@@ -27,14 +27,14 @@ import XMonad.Actions.FloatSnap
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Grid
 import XMonad.Layout.Spiral
---import XMonad.Layout.Magnifier
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Spacing
 
 import XMonad.ManageHook
+import XMonad.Hooks.StatusBar
+import XMonad.Hooks.StatusBar.PP
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
-import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicProperty (dynamicPropertyChange)
 import XMonad.Hooks.ManageHelpers (doCenterFloat)
@@ -276,6 +276,19 @@ myStartupHook = do
         spawnOnce "libinput-gestures &"
         setDefaultCursor myCursor
 
+myLogHook xmproc = dynamicLogWithPP . filterOutWsPP [scratchpadWorkspaceTag] $ def
+                                   { ppOutput = hPutStrLn xmproc 
+                                   , ppCurrent = xmobarColor "#4381fb" "" . wrap "[" "]"
+                                   , ppVisible = xmobarColor "#4381fb" ""
+                                   , ppHidden = xmobarColor "#d1426e" "" . wrap "*" ""
+                                   , ppHiddenNoWindows = xmobarColor "#061d8e" ""
+                                   , ppTitle = xmobarColor "#ffffff" "" . shorten 60
+                                   , ppSep = "<fc=#666666> | </fc>"
+                                   , ppWsSep = "<fc=#666666> . </fc>"
+                                   , ppExtras = [windowCount]
+                                   , ppOrder = \(ws:l:t:ex) -> [ws,l]++ex++[t]
+                                   }
+
 
 
 ---------------------------------------------------------
@@ -284,7 +297,7 @@ myStartupHook = do
 
 main = do
    xmproc <- spawnPipe "xmobar -x 0 ~/.xmobarrc/xmobar.hs"
-   xmonad $ docks $ ewmh desktopConfig
+   xmonad $ docks $ ewmhFullscreen . ewmh $ desktopConfig
         { terminal           = myTerminal
         , modMask            = myModMask
         , workspaces         = myWorkspaces
@@ -297,18 +310,7 @@ main = do
         , layoutHook         = myLayout
         , manageHook         = myManageHook <+> namedScratchpadManageHook myScratchpads
         , handleEventHook    = myEventHook
-        , logHook            = dynamicLogWithPP . namedScratchpadFilterOutWorkspacePP $ def
-                                   { ppOutput = hPutStrLn xmproc
-                                   , ppCurrent = xmobarColor "#4381fb" "" . wrap "[" "]"
-                                   , ppVisible = xmobarColor "#4381fb" ""
-                                   , ppHidden = xmobarColor "#d1426e" "" . wrap "*" ""
-                                   , ppHiddenNoWindows = xmobarColor "#061d8e" ""
-                                   , ppTitle = xmobarColor "#ffffff" "" . shorten 60
-                                   , ppSep = "<fc=#666666> | </fc>"
-                                   , ppWsSep = "<fc=#666666> . </fc>"
-                                   , ppExtras = [windowCount]
-                                   , ppOrder = \(ws:l:t:ex) -> [ws,l]++ex++[t]
-                                }
+        , logHook            = myLogHook xmproc 
 
         , startupHook        = myStartupHook
      }
