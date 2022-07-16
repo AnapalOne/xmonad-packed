@@ -112,8 +112,7 @@ Config {
         --                     , ("us"         , "<fc=#4682B4>KeyB: </fc", "<fc=#8B0000>US</fc>")
         --                     ]
 
-        -- volume (alias %default:Master%)
-        -- , Run Com "/home/anapal/Scripts/volume.sh" [] "volume" 10
+
         , Run Volume "default" "Master" [ "-t", "<fc=#a0a0a0><volumebar><status></fc>"
                                         , "-f", "\xfa7e\xfa7e\xfa7e\xfa7f\xfa7f\xfa7f\xfa7f\xfa7d\xfa7d\xfa7d"
                                         , "-W", "0"
