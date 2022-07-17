@@ -1,7 +1,7 @@
 # Confirmation
-read -p "Do you want to install this configuration now? (y/n) " yn
+read -p "Do you want to install this configuration now? (y/n) " prompt
 
-case $yn in
+case $prompt in
       [Yy] ) echo "Installing.." ;;
       [Nn] ) exit ;;
          * ) echo "Invalid choice."
@@ -29,7 +29,7 @@ echo "Copying help to ~/.config/xmonad/" && bash -c 'cp files/help ~/.config/xmo
 echo "Copying picom.conf to ~/.config/picom/" && bash -c 'cp config/picom.conf ~/.config/picom/'
 echo "Copying neofetch_config.conf to ~/.config/neofetch/config.conf" && bash -c 'cp config/neofetch_config.conf ~/.config/neofetch/config.conf'
 echo "Copying archlinux.txt to ~/Pictures/Ascii/" && bash -c 'cp files/archlinux.txt ~/Pictures/Ascii/'
-echo "Copying help.sh and startup_window.sh to ~/.config/xmonad/scripts/" && bash -c 'cp config/shell/help.sh config/shell/startup_window.sh ~/.config/xmonad/scripts/'
+echo "Copying startup_window.sh to ~/.config/xmonad/scripts/" && bash -c 'cp config/shell/startup_window.sh ~/.config/xmonad/scripts/'
 
 # Add execution permissions to shell scripts
-bash -c 'chmod +x ~/.config/xmonad/scripts/help.sh && chmod +x ~/.config/xmonad/scripts/startup_window.sh'
+echo "Adding execution permissions to scripts.." && bash -c 'chmod +x ~/.config/xmonad/scripts/startup_window.sh'

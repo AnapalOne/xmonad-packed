@@ -191,7 +191,7 @@ myScratchpads =
          , NS "ScrP_htop" "alacritty -t htop -e htop" (title =? "htop") floatScratchpad
          , NS "ScrP_vim" "alacritty -t vim -e vim" (title =? "vim") floatScratchpad
          , NS "ScrP_ncdu" "alacritty -t ncdu -e ncdu" (title =? "ncdu") floatScratchpad
-         , NS "help" "~/.config/xmonad/scripts/help.sh" (title =? "list of programs") floatScratchpad
+         , NS "help" "alacritty -t \"list of programs\" -e bash -c \'less ~/.config/xmonad/help\'" (title =? "list of programs") floatScratchpad
          , NS "ScrP_cmus" "alacritty -t cmus -e cmus" (title =? "cmus") floatScratchpad
          ]
     where 
