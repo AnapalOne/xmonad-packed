@@ -34,10 +34,10 @@ import XMonad.ManageHook
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.ManageHelpers (doCenterFloat)
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicProperty (dynamicPropertyChange)
-import XMonad.Hooks.ManageHelpers (doCenterFloat)
+
 
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
